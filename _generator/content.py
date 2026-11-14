@@ -10,9 +10,9 @@ C = dict(
     doctor="Dr. Abhijeet Suresh Shinde",
     quals="MBBS, MS (General Surgery), FMAS",
     est="2012",
-    address="2nd Floor, Lotus Plaza, College Road, Nashik, Maharashtra 422005",  # [REPLACE]
-    city="Nashik",
-    areas="Nashik, Sinnar, Igatpuri, Dindori, Malegaon",
+    address="2nd Floor, Lotus Plaza, College Road, Pune, Maharashtra 422005",  # [REPLACE]
+    city="Pune",
+    areas="Pune, Sinnar, Igatpuri, Dindori, Malegaon",
     phone="+91 98765 43210", phone_tel="+919876543210",
     whatsapp="919876543210",
     appt="+91 98765 43210", appt_tel="+919876543210",
@@ -21,8 +21,8 @@ C = dict(
     hours="Mon – Sat: 9:00 AM – 8:00 PM",
     hours2="Sunday: OPD closed · Emergency 24×7",
     base="https://www.dishaclinic.example",   # [REPLACE] live domain (used in sitemap/canonical)
-    map_embed="https://www.google.com/maps?q=College+Road+Nashik&output=embed",
-    map_link="https://www.google.com/maps/search/?api=1&query=College+Road+Nashik",
+    map_embed="https://www.google.com/maps?q=College+Road+Pune&output=embed",
+    map_link="https://www.google.com/maps/search/?api=1&query=College+Road+Pune",
     social={"Instagram": "#", "Facebook": "#", "LinkedIn": "#", "YouTube": "#"},
     slots=["09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"],
     closed_days=[0],  # 0 = Sunday
@@ -41,7 +41,7 @@ SERVICES = [
   [("Is laparoscopic surgery safe?", "Yes. When performed by an experienced surgeon in a well-equipped theatre, it is a well-established and safe approach. Your surgeon will explain the benefits and risks for your case."),
    ("How long will I stay in the hospital?", "Most keyhole procedures need a stay of one to two days, depending on the surgery and your general health."),
    ("Can every surgery be done by keyhole?", "No. Some situations, such as dense adhesions or certain emergencies, are safer with open surgery. Your surgeon recommends the approach that fits you best.")],
-  ["laparoscopic surgeon in Nashik", "keyhole surgery Nashik", "laparoscopic surgery hospital", "minimally invasive surgery"]),
+  ["laparoscopic surgeon in Pune", "keyhole surgery Pune", "laparoscopic surgery hospital", "minimally invasive surgery"]),
  ("gallbladder-stone-surgery", "Gallbladder Stone Surgery", "heart",
   "Safe laparoscopic gallbladder removal for painful gallstones, with a clear treatment plan, quick recovery and compassionate support throughout your care.",
   "Gallstones can cause repeated pain, nausea and serious complications if ignored. We offer keyhole gallbladder removal with careful assessment before and attentive follow-up after surgery.",
@@ -50,7 +50,7 @@ SERVICES = [
   [("Do all gallstones need surgery?", "Not always. Stones that cause no symptoms can often be observed. Surgery is advised when pain, infection or other complications occur."),
    ("Can I live normally without a gallbladder?", "Yes. The liver continues to produce bile, and most people eat a normal diet after a short adjustment period."),
    ("When can I return to work?", "Most patients resume light work within one week, depending on the type of job and recovery.")],
-  ["gallbladder stone surgery in Nashik", "gallstone removal", "laparoscopic cholecystectomy", "gallbladder pain treatment"]),
+  ["gallbladder stone surgery in Pune", "gallstone removal", "laparoscopic cholecystectomy", "gallbladder pain treatment"]),
  ("hernia-repair-surgery", "Hernia Repair Surgery", "shield",
   "Mesh-based hernia repair using open or laparoscopic techniques, selected for your hernia type, age and lifestyle to reduce the chance of recurrence.",
   "A hernia will not heal on its own and can become dangerous if it gets trapped. Timely repair gives lasting relief and prevents emergencies.",
@@ -59,7 +59,7 @@ SERVICES = [
   [("Can a hernia heal without surgery?", "No. A hernia does not close by itself. Surgery is the only permanent treatment, and early repair is simpler and safer."),
    ("Is mesh repair safe?", "Modern surgical mesh is widely used and safe. It strengthens the repair and significantly reduces the risk of recurrence."),
    ("What happens if I delay surgery?", "The hernia may grow larger, become painful or get trapped, which can need emergency surgery.")],
-  ["hernia surgeon in Nashik", "hernia repair surgery", "laparoscopic hernia repair", "inguinal hernia treatment"]),
+  ["hernia surgeon in Pune", "hernia repair surgery", "laparoscopic hernia repair", "inguinal hernia treatment"]),
  ("piles-fissure-fistula-treatment", "Piles, Fissure & Fistula Treatment", "cross",
   "Discreet, modern treatment for piles, anal fissure and fistula, matched to the severity of your condition, from simple medical care to day-care procedures.",
   "Anorectal problems are common and treatable. We offer private consultation, accurate diagnosis and the least invasive option that works for you.",
@@ -68,7 +68,7 @@ SERVICES = [
   [("Are piles always treated with surgery?", "No. Early piles often improve with diet, medication and lifestyle changes. Surgery is advised only for advanced or persistent cases."),
    ("Is the procedure painful?", "Modern anaesthesia and techniques keep discomfort low, and we provide pain relief and aftercare advice."),
    ("Can these conditions come back?", "Recurrence is possible, but good bowel habits and follow-up care greatly reduce the risk.")],
-  ["piles treatment in Nashik", "fissure treatment", "fistula surgery", "laser piles surgery"]),
+  ["piles treatment in Pune", "fissure treatment", "fistula surgery", "laser piles surgery"]),
  ("appendix-surgery", "Appendix Surgery", "clock",
   "Prompt laparoscopic appendectomy for appendicitis, with round-the-clock access to surgeons and a quick, comfortable recovery after the operation.",
   "Appendicitis needs fast attention. Our surgical team is available around the clock to diagnose and operate safely when required.",
@@ -77,7 +77,7 @@ SERVICES = [
   [("What are the warning signs of appendicitis?", "Pain moving to the lower right abdomen, fever, vomiting and loss of appetite. Seek medical care promptly if these appear."),
    ("Can appendicitis be treated without surgery?", "Some mild cases may be managed with antibiotics, but surgery is the most reliable treatment. Your surgeon will advise."),
    ("How long is recovery?", "Most patients return to normal activity in one to two weeks after keyhole surgery.")],
-  ["appendix surgery in Nashik", "appendicitis treatment", "laparoscopic appendectomy", "emergency surgeon"]),
+  ["appendix surgery in Pune", "appendicitis treatment", "laparoscopic appendectomy", "emergency surgeon"]),
  ("kidney-stone-treatment", "Kidney Stone Treatment", "bed",
   "Advanced endoscopic removal of kidney and ureteric stones, planned around stone size, position and your risk of recurrence for lasting relief.",
   "Kidney stones cause severe pain and can damage the kidney if neglected. We use minimal-access techniques to clear stones safely.",
@@ -86,7 +86,7 @@ SERVICES = [
   [("Can a kidney stone pass on its own?", "Small stones often do with plenty of fluids and medication. Larger or blocking stones need treatment."),
    ("Is stone surgery done without cuts?", "Many stones are removed endoscopically through natural passages or a very small keyhole."),
    ("How can I prevent new stones?", "Drink enough water, limit excess salt, follow dietary advice and attend recommended follow-up tests.")],
-  ["kidney stone treatment in Nashik", "kidney stone removal", "ureteric stone surgery", "endoscopic stone removal"]),
+  ["kidney stone treatment in Pune", "kidney stone removal", "ureteric stone surgery", "endoscopic stone removal"]),
  ("lipoma-cyst-removal", "Lipoma & Cyst Removal", "user",
   "Safe day-care removal of lipomas, cysts and soft-tissue lumps after proper assessment, with neat stitching and minimal scarring for a natural result.",
   "Most skin and soft-tissue lumps are harmless, but they should be examined. We assess the lump first and remove it only when appropriate.",
@@ -95,7 +95,7 @@ SERVICES = [
   [("Do all lumps need to be removed?", "No. Harmless lumps can be monitored. Removal is advised if a lump grows, hurts or causes cosmetic concern."),
    ("Will the lump come back?", "If the lump is removed completely, recurrence is uncommon, although new ones can form elsewhere."),
    ("Is the procedure painful?", "The area is numbed with local anaesthesia, so you feel little discomfort during the procedure.")],
-  ["lipoma removal in Nashik", "cyst removal surgery", "ganglion treatment", "skin lump surgery"]),
+  ["lipoma removal in Pune", "cyst removal surgery", "ganglion treatment", "skin lump surgery"]),
  ("emergency-gi-surgery", "Emergency G.I. Surgery", "heart",
   "Round-the-clock emergency operating team for acute abdominal conditions such as obstruction, perforation and severe infection, with rapid decision-making.",
   "Sudden severe abdominal pain should never be ignored. Our 24×7 team is ready to assess and operate whenever there is an emergency.",
@@ -104,7 +104,7 @@ SERVICES = [
   [("Is the emergency service open at night?", "Yes. Our emergency surgical team is available 24 hours a day, every day of the year."),
    ("Do you accept mediclaim?", "Yes. Cashless facility is available with many insurers. Our team helps with the paperwork."),
    ("What should I do in an abdominal emergency?", "Reach the nearest emergency facility without delay and call our emergency number so the team can prepare.")],
-  ["emergency surgeon in Nashik", "24 hour emergency surgery", "intestinal obstruction surgery", "emergency hospital Nashik"]),
+  ["emergency surgeon in Pune", "24 hour emergency surgery", "intestinal obstruction surgery", "emergency hospital Pune"]),
 ]
 
 PRODUCTS = [
@@ -147,10 +147,10 @@ AWARDS = ["Best Surgical Care Award", "NABH Entry Level Certificate", "Excellenc
 
 # Blogs. Body markup: "## " heading, "- " bullet, otherwise paragraph.
 BLOGS = [
- dict(slug="gallbladder-stone-symptoms-and-treatment", title="Gallbladder Stone Symptoms and Treatment in Nashik",
+ dict(slug="gallbladder-stone-symptoms-and-treatment", title="Gallbladder Stone Symptoms and Treatment in Kharadi, Pune",
   sub="Learn the warning signs of gallstones, how they are diagnosed and when keyhole surgery is the right choice for you.",
-  cat="Guides", date="2026-11-05", author="Dr. Abhijeet Suresh Shinde", glyph="heart", kw="gallbladder stone treatment in Nashik",
-  mt="Gallbladder Stone Symptoms and Treatment in Nashik | Disha", 
+  cat="Guides", date="2026-11-05", author="Dr. Abhijeet Suresh Shinde", glyph="heart", kw="gallbladder stone treatment in Pune",
+  mt="Gallbladder Stone Symptoms and Treatment in Kharadi, Pune", 
   body="""Gallstones are one of the most common reasons people visit a surgeon for upper abdominal pain. Many stones stay silent for years, but once they start causing symptoms, they tend to return. Understanding the warning signs helps you seek care early and avoid complications. This guide explains what gallstones are, how they are treated and what recovery looks like.
 ## What are gallstones?
 The gallbladder is a small pouch under the liver that stores bile, a fluid that helps digest fats. When substances in bile such as cholesterol or pigments harden, they form stones that can be as small as a grain of sand or as large as a golf ball. Stones may block the flow of bile, causing pain, inflammation or infection.
@@ -178,7 +178,7 @@ Please seek immediate medical care if you have severe continuous abdominal pain,
 Gallstones are common and very treatable. If you have recurring upper abdominal pain, do not wait for a complication. A simple consultation and ultrasound can give you clear answers. To discuss your symptoms with our surgeon, contact us or message us on WhatsApp today."""),
  dict(slug="piles-vs-fissure-symptoms-causes-when-to-see-doctor", title="Piles vs Fissure: Symptoms, Causes and When to See a Doctor",
   sub="Not sure whether your anal pain or bleeding is piles or a fissure? Here is a simple guide to tell them apart.",
-  cat="Tips", date="2026-10-28", author="Dr. Abhijeet Suresh Shinde", glyph="cross", kw="piles treatment in Nashik",
+  cat="Tips", date="2026-10-28", author="Dr. Abhijeet Suresh Shinde", glyph="cross", kw="piles treatment in Pune",
   mt="Piles vs Fissure: Symptoms, Causes and When to See a Doctor",
   body="""Bleeding or pain around the anus is worrying, and many people feel too embarrassed to talk about it. The truth is that piles and fissures are very common and highly treatable. Because their symptoms overlap, it helps to understand the differences so you know when to seek help. This article explains both conditions in simple language.
 ## What are piles?
@@ -298,26 +298,41 @@ C.update(
     name="DISHA Advanced Surgical & Laser Piles Clinic", short="Disha",
     tagline="Journey towards better life",
     owner="Dr. Abhijeet Suresh Shinde", doctor="Dr. Abhijeet Suresh Shinde",
-    quals="General & Laparoscopic Surgeon · Consultant Proctologist",
-    est="2024", address="[REPLACE: Clinic address], Nashik, Maharashtra",
-    city="Nashik", areas="Nashik, Sinnar, Igatpuri, Dindori, Malegaon, Niphad",
+    quals="MS (General Surgery) | DEMS | DIHM",
+    role="General & Laparoscopic Surgeon | Consultant Proctologist",
+    exp_years="10+", patients="3,500+",
+    est="2026", founded="20 October 2026", founded_iso="2026-10-20",
+    address="1st Floor, OPD No. 2, Survey No. 22/2, Ganga Altus, F Building, Cherry Life, Near Manipal Hospital, Thite Nagar, Kharadi, Pune, Maharashtra 411014",
+    street="1st Floor, OPD No. 2, Survey No. 22/2, Ganga Altus, F Building, Cherry Life, Near Manipal Hospital, Thite Nagar, Kharadi",
+    locality="Kharadi, Pune", postal="411014",
+    city="Pune", areas="Kharadi, Pune",
+    about_clinic="Disha Advanced Surgical and Laser Piles Clinic in Kharadi, Pune, specializes in advanced laser and laparoscopic care for piles, fissures, fistulas, hernias, gallstones and varicose veins, alongside comprehensive GI diagnostics and oncology surgery.",
     phone="+91 97668 15782", phone_tel="+919766815782", whatsapp="919766815782",
     appt="+91 97668 15782", appt_tel="+919766815782", emergency="+91 97668 15782", emergency_tel="+919766815782",
     email="info@dishaclinic.example", hours="Daily: 10:00 AM – 9:00 PM", hours2="Call ahead for appointments",
     base="https://www.dishaclinic.example",
-    map_embed="https://www.google.com/maps?q=Nashik+Maharashtra&output=embed", map_link="https://www.google.com/maps/search/?api=1&query=Nashik",
+    map_embed="https://www.google.com/maps?q=Ganga+Altus+Cherry+Life+Thite+Nagar+Kharadi+Pune+411014&output=embed",
+    map_link="https://maps.app.goo.gl/dh9mbhsyUwVJ43zh7",
     slots=["10:00 AM","11:00 AM","12:00 PM","01:00 PM","02:00 PM","03:00 PM","04:00 PM","05:00 PM","06:00 PM","07:00 PM","08:00 PM"],
     closed_days=[],
 )
+# Credentials supplied by the client (Requirement Document, Section 1)
+CREDENTIALS = [
+    ("Postgraduate", "MS (General Surgery)", "Master of Surgery in General Surgery", "award"),
+    ("Emergency Care", "DEMS", "Diploma in Emergency Medical Services, Ruby Hall Clinic, Pune", "clock"),
+    ("Industrial Health", "DIHM", "Diploma in Industrial Health Management, Ruby Hall Clinic, Pune", "shield"),
+    ("Laser Proctology", "Diploma in Laser Proctology", "Advanced laser techniques for piles, fissure and fistula", "pulse"),
+    ("Proctology Training", "Healing Hands Clinic, Pune", "Specialised proctology training", "user"),
+]
 _old = {s[0]: s for s in SERVICES}
-def _kw(n): l = n.lower(); return [f"{l} in Nashik", f"best {l} doctor", f"{l} treatment cost", f"{l} specialist Nashik"]
+def _kw(n): l = n.lower(); return [f"{l} in Pune", f"best {l} doctor in Kharadi", f"{l} treatment cost Pune", f"{l} specialist Kharadi Pune"]
 _gen = [("Is the consultation private?", "Yes. Every consultation and examination is private, respectful and judgement-free."),
         ("How do I book an appointment?", "Call or WhatsApp +91 97668 15782, or use the online booking form. The clinic is open daily from 10 AM to 9 PM.")]
 def S(slug, name, icon, short, intro, full, feats, faqs, kw=None):
     return (slug, name, icon, short, intro, full, feats, list(faqs) + _gen, kw or _kw(name))
 def _o(slug, name=None, icon=None):
     s = _old[slug]; return (s[0], name or s[1], icon or s[2], s[3], s[4], s[5], s[6], list(s[7]) + _gen[:1], s[8])
-_c = lambda n: n.replace("Nashik", "Nashik")
+_c = lambda n: n.replace("Pune", "Pune")
 
 SERVICES = [
  S("laser-piles-treatment", "Laser Piles Treatment", "pulse",
@@ -326,14 +341,14 @@ SERVICES = [
    "In laser treatment, a fine laser fibre delivers focused energy to the piles mass, shrinking it and sealing the blood supply without large wounds. Compared with conventional surgery, patients usually report less pain, minimal bleeding, a short procedure time and an early return to work. It is suited to many grade 2, 3 and some grade 4 piles. Dr. Shinde examines you first and recommends laser only when it is the right option for you.",
    ["Minimal cutting and bleeding","Short day-care procedure","Less post-operative pain","Quick return to daily routine","Suitable for many grades of piles"],
    [("Is laser piles surgery painful?","Discomfort is much lower than with conventional surgery. Pain relief and aftercare advice are provided."),("Can piles return after laser treatment?","Recurrence is possible if constipation and straining continue, so diet and bowel-habit guidance is part of the plan.")],
-   ["laser piles treatment in Nashik","laser surgery for piles","painless piles treatment","best piles doctor in Nashik"]),
+   ["laser piles treatment in Pune","laser surgery for piles","painless piles treatment","best piles doctor in Pune"]),
  S("piles-haemorrhoid-surgery", "Piles (Haemorrhoid) Treatment", "cross",
    "Treatment for piles matched to the grade, from diet and medicines to rubber-band ligation, stapler and surgical removal.",
    "Piles are common and treatable. We choose the simplest option that works for your grade and lifestyle.",
    "Piles cause bleeding, pain, itching or a lump around the anus. Early piles often settle with diet, fibre, fluids and medicines. Advanced piles may need a day-care procedure such as banding, laser, stapler haemorrhoidopexy or conventional haemorrhoidectomy. After a private examination, Dr. Shinde explains every option and its trade-offs so that you decide with full information.",
    ["Private, gentle examination","Treatment matched to piles grade","Laser, stapler and open options","Diet and bowel-habit counselling","Clear recovery plan"],
    [("Do all piles need surgery?","No. Early piles often improve with diet, medication and lifestyle changes. Surgery is advised only for advanced or persistent piles."),("Is bleeding during stools always piles?","Not always. Bleeding should be examined to rule out other conditions, so please do not self-treat for long.")],
-   ["piles treatment in Nashik","haemorrhoid surgery","piles doctor Nashik","piles specialist"]),
+   ["piles treatment in Pune","haemorrhoid surgery","piles doctor Pune","piles specialist"]),
  S("fissure-treatment", "Anal Fissure Treatment", "shield",
    "Relief for the sharp, tearing pain of an anal fissure with ointments, Botox or a short procedure such as lateral sphincterotomy.",
    "A fissure is a small tear that causes severe pain and bleeding during or after passing stools.",
@@ -490,5 +505,5 @@ HOME_FAQ = [
  ("What are your clinic timings?", "We are open daily from 10:00 AM to 9:00 PM. Call +91 97668 15782 to book."),
 ]
 TESTIMONIALS = []   # add real patient reviews here (with consent). Section hides itself when empty.
-TEAM = [("Dr. Abhijeet Suresh Shinde", "General & Laparoscopic Surgeon · Consultant Proctologist")]
+TEAM = [("Dr. Abhijeet Suresh Shinde", "General & Laparoscopic Surgeon | Consultant Proctologist")]
 AWARDS = []

@@ -1,9 +1,10 @@
 # Content & materials needed from the client
-All text in this template is dummy content marked [REPLACE]. Please collect:
+Section 1 (clinic / doctor information) has been received and integrated: name, tagline, owner, Kharadi (Pune) address, founding date, Google Maps link, About Clinic, About Doctor and qualifications, areas served.
+Still pending from the client (placeholders are used on the site until then):
 
 ## 1. Hospital / Dr information
-- Hospital name and tagline, owner name, address, year of establishment, short description
-- Areas / cities served, logo (PNG transparent or SVG), brand colours or reference sites (optional)
+- Official email ID (site currently shows info@dishaclinic.example), social media links, high-quality logo PNG/SVG
+- Doctor photograph, clinic / infrastructure photographs, certificates / awards (optional)
 
 ## 2. Page content
 - Home: banners (heading, one-line sub-text, button text + link, image 1920x800 with no text on image), 50-80 word introduction, Why Choose Us points, customer reviews

@@ -49,7 +49,9 @@ def fit_title(t):
         while len(" ".join(w)) > 60: w.pop()
         t = " ".join(w).rstrip(" |,:-")
     if len(t) < 50:
-        for suf in [f" | {C['short']} Clinic {C['city']}", f" | {C['name']}", f" | {C['short']} Clinic", f" | {C['name']}, {C['city']}", f" - {C['short']} Clinic", f" | {C['short']}"]:
+        for suf in [f" | {C['short']} Clinic {C['city']}", f" | {C['name']}", f" | {C['short']} Clinic", f" | {C['name']}, {C['city']}", f" - {C['short']} Clinic", f" | {C['short']}",
+                    f" | {C['short']} Clinic, Kharadi Pune", f" | {C['short']} Surgical Clinic Pune", f" | {C['short']} Surgical Clinic, Kharadi Pune", f" | {C['short']} Advanced Surgical Clinic Pune",
+                    f" | {C['short']} Advanced Surgical Clinic, Kharadi Pune", f" | DISHA Advanced Surgical & Laser Piles Clinic", f" | DISHA Advanced Surgical & Laser Piles Clinic, Pune"]:
             if 50 <= len(t + suf) <= 60: return t + suf
         REPORT.append(f"title length {len(t)}: {t}")
     return t
@@ -71,7 +73,7 @@ def nav(active):
         on = ' class="on"' if key == active else ""
         if href is None:
             sd = slugs(); items = "".join(f'<div class="dg"><h5>{g[0]}</h5>' + "".join(f'<a href="§services/{x}/">{esc(sd[x][1])}</a>' for x in g[3]) + '</div>' for g in GROUPS)
-            out += f'<div class="dd"><a href="§services/"{on}>Services ▾</a><div class="dd-m"><a class="dd-all" href="§services/">View all services {ic("arrow")}</a>{items}</div></div>'
+            out += f'<div class="dd"><a href="§services/"{on}>Services ▾</a><div class="dd-m">{items}</div></div>'
         else: out += f'<a href="{href}"{on}>{lab}</a>'
     out += f'<div class="nav-cta"><a class="btn btn-a btn-sm" href="tel:{C["phone_tel"]}">{ic("phone")} Call Now</a><a class="btn btn-p btn-sm" href="§book-appointment/">{ic("cal")} Book Now</a></div>'
     return out
@@ -170,9 +172,9 @@ def blog_html(body):
     return "\n".join(out), toc
 
 HOSP = {"@context": "https://schema.org", "@type": "MedicalClinic", "name": C["name"], "description": C["tagline"], "url": C["base"], "telephone": C["phone"], "email": C["email"], "image": C["base"] + "/assets/img/hero-1.jpg",
-        "address": {"@type": "PostalAddress", "streetAddress": C["address"], "addressLocality": C["city"], "addressRegion": "Maharashtra", "addressCountry": "IN"},
-        "openingHours": "Mo-Sa 09:00-20:00", "areaServed": C["areas"].split(", "), "sameAs": [u for u in C["social"].values() if u != "#"]}
-PHYS = {"@context": "https://schema.org", "@type": "Physician", "name": C["doctor"], "medicalSpecialty": "Surgery", "worksFor": {"@type": "MedicalClinic", "name": C["name"]}}
+        "address": {"@type": "PostalAddress", "streetAddress": C["street"], "addressLocality": "Kharadi, Pune", "addressRegion": "Maharashtra", "postalCode": C["postal"], "addressCountry": "IN"},
+        "openingHours": "Mo-Su 10:00-21:00", "areaServed": C["areas"].split(", "), "foundingDate": C["founded_iso"], "hasMap": C["map_link"], "medicalSpecialty": ["Surgery", "Gastroenterology"], "slogan": C["tagline"], "sameAs": [u for u in C["social"].values() if u != "#"]}
+PHYS = {"@context": "https://schema.org", "@type": "Physician", "name": C["doctor"], "jobTitle": C["role"], "description": f"{C['doctor']} ({C['quals']}) has over {C['exp_years']} years of surgical experience and has treated more than {C['patients']} patients.", "medicalSpecialty": ["Surgery", "Proctology"], "hasCredential": [{"@type": "EducationalOccupationalCredential", "name": c[1]} for c in CREDENTIALS], "address": {"@type": "PostalAddress", "addressLocality": "Kharadi, Pune", "addressRegion": "Maharashtra", "postalCode": C["postal"], "addressCountry": "IN"}, "worksFor": {"@type": "MedicalClinic", "name": C["name"]}}
 
 # ======================= BUILD =======================
 if os.path.exists(OUT): shutil.rmtree(OUT)
@@ -196,16 +198,16 @@ for k, (h, p, b1, l1, b2, l2) in enumerate(slides):
     tag = "h1" if k == 0 else "h2"
     sl += f'<div class="slide{" on" if k == 0 else ""}"><img src="§assets/img/hero-{k+1}.jpg" alt="{esc(h)} - {esc(C["name"])}" width="1920" height="800"{"" if k == 0 else " loading=\"lazy\""}><div class="container"><div class="hc"><span class="eyebrow">{esc(C["name"])}</span><{tag}>{h}</{tag}><p>{p}</p><div class="bt"><a class="btn btn-a" href="§{l1}">{b1} {ic("arrow")}</a><a class="btn btn-o" href="§{l2}">{b2}</a></div></div></div></div>'
 hero = f'<section class="hero" aria-label="Highlights">{sl}<div class="hero-logo" aria-hidden="true"><div class="hl-card"><img src="§assets/img/emblem.png" alt="" width="210" height="193"><span class="hl-line"></span><b>DISHA</b><small>Advanced Surgical &amp; Laser Piles Clinic</small><i>Journey towards better life</i></div></div><button class="arr prev" aria-label="Previous">{ic("left")}</button><button class="arr next" aria-label="Next">{ic("right")}</button><div class="dots">{"".join(f"<button class=\"dot{chr(32)+chr(111)+chr(110) if k==0 else chr(32)}\" aria-label=\"Slide {k+1}\"></button>" for k in range(3))}</div></section>'
-stats = '<section class="stats"><div class="container"><div class="grid g4 reveal">' + "".join(f'<div class="stat"><b data-count="{n}" data-suf="{s}">0</b><span>{l}</span></div>' for n, s, l in [(len(SERVICES), "+", "Surgical Treatments"), (11, " hrs", "Open Daily, 10 AM – 9 PM"), (100, "%", "Private Consultations"), (1, "", "Surgeon, Start to Finish")]) + '</div></div></section>'  # [REPLACE] numbers
+stats = '<section class="stats"><div class="container"><div class="grid g4 reveal">' + "".join(f'<div class="stat"><b data-count="{n}" data-suf="{s}">0</b><span>{l}</span></div>' for n, s, l in [(10, "+", "Years of Surgical Experience"), (3500, "+", "Patients Treated"), (len(SERVICES), "+", "Surgical Treatments"), (11, " hrs", "Open Daily, 10 AM – 9 PM")]) + '</div></div></section>'
 intro = f'''<section class="section"><div class="container split"><div class="reveal"><span class="eyebrow">About the Clinic</span><h2>Journey towards a better life</h2>
-<p>{esc(C["name"])} is a specialised clinic in {C["city"]} led by {C["doctor"]}, a General &amp; Laparoscopic Surgeon and Consultant Proctologist. We offer advanced laser and surgical treatment for piles, fissure and fistula along with laparoscopic, urological and general surgery. Every consultation is private, every opinion is honest, and you are cared for by the same surgeon from the first visit to the last follow-up.</p>
+<p>{esc(C["name"])} in {C["locality"]}, specialises in advanced laser and laparoscopic care for piles, fissures, fistulas, hernias, gallstones and varicose veins, alongside comprehensive GI diagnostics and oncology surgery. Led by {C["doctor"]}, MS (General Surgery), with over {C["exp_years"]} years of experience and {C["patients"]} patients treated, every consultation is private, every opinion is honest and your care stays with one surgeon.</p>
 <ul class="ticks"><li>{ic("check")} Honest opinion on whether you need surgery</li><li>{ic("check")} Advanced laser and laparoscopic technology</li><li>{ic("check")} Private, comfortable and respectful care</li></ul><a class="btn btn-p" href="§about-us/" style="margin-top:12px">Read Our Story {ic("arrow")}</a></div>
-<div class="frame reveal"><img src="§assets/img/about.jpg" alt="{esc(C["name"])} building and care team in {C["city"]}" width="800" height="640" loading="lazy"><div class="float"><b>Open Daily</b>10 AM – 9 PM</div></div></div></section>'''
+<div class="frame reveal"><img src="§assets/img/about.jpg" alt="{esc(C["name"])} building and care team in {C["city"]}" width="800" height="640" loading="lazy"><div class="float"><b>Kharadi, Pune</b>Open Daily 10 AM – 9 PM</div></div></div></section>'''
 home_svc = f'<section class="section alt"><div class="container">{sh("Core Surgeries", "Treatments our patients visit us for", "Each one explained in plain language, with recovery guidance.")}<div class="grid g3">{"".join(svc_card(s, i) for i, s in enumerate([x for c in CORE for x in SERVICES if x[0]==c]))}</div><div style="text-align:center;margin-top:26px"><a class="btn btn-p" href="§services/">View All {len(SERVICES)} Services {ic("arrow")}</a></div></div></section>'
 why = f'<section class="section"><div class="container">{sh("Why Choose Us", "Care that stays with you", "Six reasons patients trust Disha Clinic.")}<div class="grid g3">{"".join(f"<div class=\"card why reveal\" style=\"--d:{(i%3)*.08}s\"><div class=\"ib\">{ic(a)}</div><h3>{b}</h3><p>{c}</p></div>" for i, (a, b, c) in enumerate(WHY))}</div></div></section>'
 def surgeon(cls="section", cta_label="Meet the Doctor", cta_href="§about-us/", eyebrow="Our Surgeon", sec_label="Book a Consultation", sec_href="§book-appointment/"):
-    return f'''<section class="{cls}"><div class="container split doc-split"><div class="doc-photo reveal"><div class="frame"><img src="§assets/img/doctor.jpg" alt="{C["doctor"]}, surgeon at {esc(C["name"])}" width="800" height="900" loading="lazy"></div><div class="doc-badge"><b>Consultant</b><span>Proctologist &amp; Laparoscopic Surgeon</span></div></div><div class="reveal"><span class="eyebrow">{eyebrow}</span><h2>{C["doctor"]}</h2><p class="doc-role">{C["quals"]}</p><p>Dr. Shinde combines laparoscopic surgical expertise with focused proctology practice, treating piles, fissure and fistula with laser and modern techniques. [REPLACE: add qualifications and years of experience]</p>
-<ul class="ticks"><li>{ic("check")} General &amp; Laparoscopic Surgeon</li><li>{ic("check")} Consultant Proctologist (piles, fissure, fistula)</li><li>{ic("check")} Same surgeon from consultation to follow-up</li></ul><div class="doc-cta"><a class="btn btn-p" href="{cta_href}">{cta_label} {ic("arrow")}</a><a class="btn btn-ol" href="{sec_href}">{sec_label}</a></div></div></div></section>'''
+    return f'''<section class="{cls}"><div class="container split doc-split"><div class="doc-photo reveal"><div class="frame"><img src="§assets/img/doctor.jpg" alt="{C["doctor"]}, surgeon at {esc(C["name"])}" width="800" height="900" loading="lazy"></div><div class="doc-badge"><b>{C["exp_years"]} Years</b><span>Surgeon &amp; Consultant Proctologist</span></div></div><div class="reveal"><span class="eyebrow">{eyebrow}</span><h2>{C["doctor"]}</h2><p class="doc-role">{C["quals"]}</p><p>Dr. Abhijeet Suresh Shinde is an experienced surgeon with over {C["exp_years"]} years of clinical and surgical experience, having successfully treated more than {C["patients"]} patients. His expertise includes General Surgery, Laparoscopic Surgery and Advanced Proctology, with a special focus on piles, fissures, fistulas and other anorectal disorders.</p>
+<ul class="ticks"><li>{ic("check")} General &amp; Laparoscopic Surgeon</li><li>{ic("check")} Consultant Proctologist (piles, fissure, fistula)</li><li>{ic("check")} Diploma in Laser Proctology, Healing Hands Clinic training</li></ul><div class="doc-cta"><a class="btn btn-p" href="{cta_href}">{cta_label} {ic("arrow")}</a><a class="btn btn-ol" href="{sec_href}">{sec_label}</a></div></div></div></section>'''
 doc = surgeon("section alt", "Meet the Doctor", "§about-us/")
 fac = f'<section class="section dark"><div class="container">{sh("Facilities", "Built for safe, comfortable care")}<div class="fac">{"".join(f"<div class=\"reveal\">{ic(['clock','pulse','bed','shield','cross','pin'][i])}<span>{f}</span></div>" for i, f in enumerate(FACILITIES))}</div></div></section>'
 tests = f'''<section class="section"><div class="container">{sh("Testimonials", "What our patients say")}<div class="tsl reveal">{"".join(f"<div class=\"tt{' on' if i==0 else ''}\"><div class=\"stars\">★★★★★</div><p>“{t}”</p><div class=\"who\"><div class=\"av\">{n[0]}</div><div><b>{n}</b><small>{r}</small></div></div></div>" for i, (n, r, t) in enumerate(TESTIMONIALS))}<div class="tdots">{"".join(f"<button class=\"{'on' if i==0 else ''}\" aria-label=\"Review {i+1}\"></button>" for i in range(3))}</div></div></div></section>'''
@@ -217,23 +219,23 @@ def contact_prev():
     return f'''<section class="section alt"><div class="container split"><div class="reveal"><span class="eyebrow">Visit Us</span><h2>Find us in {C["city"]}</h2>
 <div class="ci"><div class="ib">{ic("pin")}</div><div><b>Address</b>{esc(C["address"])}</div></div><div class="ci"><div class="ib">{ic("phone")}</div><div><b>Appointments</b><a href="tel:{C["appt_tel"]}">{C["appt"]}</a></div></div><div class="ci"><div class="ib">{ic("clock")}</div><div><b>Working Hours</b>{C["hours"]}<br>{C["hours2"]}</div></div></div>
 <div class="reveal"><iframe class="map" title="{esc(C["name"])} location on Google Maps" src="{C["map_embed"]}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div></section>'''
-page("", f"Best Piles Treatment Clinic in {C['city']} | {C['short']}", f"{C['name']} in {C['city']} offers laser piles, fissure, fistula and laparoscopic surgery by Dr. Abhijeet Shinde. Open daily 10 AM to 9 PM. Call now.", hero + stats + intro + home_svc + groups_html + why + fac + tests + home_blog + home_faq + cta(), "home", None, [HOSP, PHYS])
+page("", f"Best Piles Treatment Clinic in {C['locality']} | {C['short']}", f"{C['name']} in {C['locality']} offers laser piles, fissure, fistula and laparoscopic surgery by Dr. Abhijeet Shinde. Open daily 10 AM to 9 PM. Call now.", hero + stats + intro + home_svc + groups_html + why + fac + tests + home_blog + home_faq + cta(), "home", None, [HOSP, PHYS])
 
 # ---- ABOUT
-timeline = [("Qualification", "General & Laparoscopic Surgeon", "[REPLACE: degrees, college, year]", "award"), ("Specialisation", "Consultant Proctologist", "Piles, fissure, fistula & anorectal disorders", "user"), ("Experience", "Laparoscopic and general surgery", "[REPLACE: years and hospitals]", "pulse"), ("Clinic", f"{C['name']}", f"{C['city']}, Maharashtra", "pin"), ("Today", "Laser and advanced surgical care", "Journey towards better life", "heart")]
+timeline = CREDENTIALS
 def journey_html():
     dn = C["doctor"]
     items = "".join(f'<div class="tj-i {"l" if i % 2 == 0 else "r"}"><span class="tj-dot">{ic(ic_)}</span><div class="tj-card"><span class="tj-no">{i+1:02d}</span><small class="tj-k">{y}</small><h3>{t}</h3><p>{d}</p></div></div>' for i, (y, t, d, ic_) in enumerate(timeline))
-    head = sh("Our Doctor", dn + ": the journey", "From training to treating, one surgeon who stays with you at every step.")
+    head = sh("Qualifications &amp; Training", dn + ": education &amp; expertise", C["quals"] + ". Specialised training in emergency care, industrial health and laser proctology.")
     return (f'<section class="section tj-sec"><div class="container">{head}'
-            f'<div class="tj" data-tj><div class="tj-line"><span class="tj-fill"></span></div>{items}<div class="tj-end reveal"><a class="btn btn-p" href="§book-appointment/">{ic("cal")} Start your journey with us</a></div></div></div></section>')
+            f'<div class="tj" data-tj><div class="tj-line"><span class="tj-fill"></span></div>{items}<div class="tj-end reveal"><a class="btn btn-p" href="§book-appointment/">{ic("cal")} Book a consultation</a></div></div></div></section>')
 JOURNEY = [("1","Call or Book","Call, WhatsApp or book online. Open daily 10 AM to 9 PM.","phone"),("2","Private Consultation","A gentle, private examination and a clear explanation.","user"),("3","Treatment Plan","The simplest effective option, with laser or surgery only when needed.","shield"),("4","Recovery & Follow-up","Aftercare guidance and follow-up with the same surgeon.","heart")]
 def steps_html():
     cards = "".join(f'<div class="tj-i"><span class="tj-dot">{ic(ic_)}</span><div class="tj-card"><h3>{t}</h3><p>{d}</p></div></div>' for i, (n, t, d, ic_) in enumerate(JOURNEY))
     return f'<section class="section alt"><div class="container">{sh("Your Journey", "What to expect when you visit", "A simple, comfortable path from first call to full recovery.")}<div class="tj tj4" data-tj><div class="tj-line"><span class="tj-fill"></span></div>{cards}</div></div></section>'
 about = header("About Us", f"Meet the team behind {esc(C['name'])}: experienced surgeons committed to safe, compassionate care.", [("About Us", None)]) + f'''
 <section class="section"><div class="container split"><div class="frame reveal"><img src="§assets/img/about-who.jpg" alt="Consultation at {esc(C["name"])}" width="800" height="640"></div><div class="reveal"><span class="eyebrow">Who We Are</span><h2>Compassion, skill and trust in every procedure</h2>
-<p>{esc(C["name"])} was started by {C["doctor"]}, a General &amp; Laparoscopic Surgeon and Consultant Proctologist, with a simple belief: surgery should be safe, transparent and humane. The clinic focuses on advanced laser and surgical treatment of piles, fissure and fistula, along with laparoscopic, urological and general surgery.</p>
+<p>{esc(C["name"])} in {C["locality"]}, specialises in advanced laser and laparoscopic care for piles, fissures, fistulas, hernias, gallstones and varicose veins, alongside comprehensive GI diagnostics and oncology surgery. The clinic was founded on {C["founded"]} by {C["doctor"]}, a General &amp; Laparoscopic Surgeon and Consultant Proctologist, with a simple belief: surgery should be safe, transparent and humane.</p>
 <p>We believe the patient should always understand their diagnosis, options and recovery plan before agreeing to surgery. That is why Dr. Shinde personally examines, operates and follows up on every case, so nothing is lost between handovers. We follow strict hygiene protocols, keep every consultation private, and give honest opinions, including a second opinion without pressure when you want one.</p>
 <a class="btn btn-p" href="§book-appointment/">Book Appointment {ic("arrow")}</a></div></div></section>
 {surgeon("section alt", "Book a Consultation", "§book-appointment/", "Our Surgeon", "Contact Us", "§contact-us/")}
@@ -305,7 +307,7 @@ slot_txt = ", ".join(C["slots"])
 contact = header("Contact Us", "We are here to help. Call, message or visit us.", [("Contact Us", None)]) + f'''<section class="section"><div class="container grid g2 cgrid"><div class="col">
 <div class="box reveal b-info"><h3>Get in touch</h3>
 <div class="ci"><div class="ib">{ic("pin")}</div><div><b>Address</b>{esc(C["address"])}</div></div><div class="ci"><div class="ib">{ic("phone")}</div><div><b>Appointment / Booking</b><a href="tel:{C["appt_tel"]}">{C["appt"]}</a></div></div>
-<div class="ci"><div class="ib">{ic("wa")}</div><div><b>WhatsApp</b><a href="https://wa.me/{C["whatsapp"]}" target="_blank" rel="noopener">+{C["whatsapp"]}</a></div></div><div class="ci"><div class="ib">{ic("mail")}</div><div><b>Official Email</b><a href="mailto:{C["email"]}">{C["email"]}</a></div></div>
+<div class="ci"><div class="ib">{ic("wa")}</div><div><b>WhatsApp</b><a href="https://wa.me/{C["whatsapp"]}" target="_blank" rel="noopener">{C["phone"]}</a></div></div><div class="ci"><div class="ib">{ic("mail")}</div><div><b>Official Email</b><a href="mailto:{C["email"]}">{C["email"]}</a></div></div>
 <div class="ci"><div class="ib">{ic("clock")}</div><div><b>Call Dr. Shinde</b><a href="tel:{C["emergency_tel"]}">{C["emergency"]}</a></div></div><div class="soc" style="margin-top:8px"><span style="margin-right:6px;font-weight:600;align-self:center">Follow us</span>{"".join(f"<a style=\"background:var(--pl);color:var(--p)\" href=\"{u}\" aria-label=\"{k}\" target=\"_blank\" rel=\"noopener\">{k[0]}</a>" for k, u in C["social"].items())}</div></div>
 <div class="box reveal b-hours"><h3>Working days &amp; hours</h3><table class="tbl">{hrs}</table><p class="hint" style="margin:12px 0 8px"><b>Appointment time slots</b></p><div class="slotchips">{"".join(f"<span>{x}</span>" for x in C["slots"])}</div></div></div>
 <div class="col"><div class="box reveal b-form"><h3>Send us an enquiry</h3><form id="enqForm" class="form" novalidate>{fld("name", "Full Name")}{fld("phone", "Phone", "tel")}{fld("email", "Email", "email")}{fld("subject", "Subject")}<div class="fld full"><label for="message">Message *</label><textarea id="message" name="message" required></textarea><small class="err"></small></div><div class="fld full"><button class="btn btn-p" type="submit">Send Message {ic("arrow")}</button></div></form>
@@ -349,7 +351,7 @@ open(os.path.join(OUT, "sitemap.xml"), "w").write('<?xml version="1.0" encoding=
 open(os.path.join(OUT, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\nSitemap: {C['base']}/sitemap.xml\n")
 
 # ---- docs
-kwlines = ["# SEO Keywords Plan\n", f"Target cities/areas: {C['areas']}  [REPLACE with client areas]\n", "| Page | Primary keyword | Secondary keywords |", "|---|---|---|",
+kwlines = ["# SEO Keywords Plan\n", f"Target cities/areas: {C['areas']}\n", "| Page | Primary keyword | Secondary keywords |", "|---|---|---|",
            f"| Home | surgical hospital in {C['city']} | general surgeon {C['city']}, laparoscopic surgery, emergency surgery, cashless mediclaim hospital |",
            f"| About | best surgeon in {C['city']} | {C['doctor']}, about {C['name']}, experienced laparoscopic surgeon |",
            f"| Products | post surgery care products {C['city']} | recovery kit, abdominal binder, compression stockings, piles cushion |",
@@ -357,11 +359,12 @@ kwlines = ["# SEO Keywords Plan\n", f"Target cities/areas: {C['areas']}  [REPLAC
            f"| Blogs | surgery health blog | gallbladder stone guide, piles vs fissure, laparoscopic recovery |"] + [f"| {s[1]} | {s[8][0]} | {', '.join(s[8][1:])} |" for s in SERVICES]
 open(os.path.join(OUT, "SEO_KEYWORDS.md"), "w").write("\n".join(kwlines) + "\n")
 open(os.path.join(OUT, "CONTENT_NEEDED_FROM_CLIENT.md"), "w").write("""# Content & materials needed from the client
-All text in this template is dummy content marked [REPLACE]. Please collect:
+Section 1 (clinic / doctor information) has been received and integrated: name, tagline, owner, Kharadi (Pune) address, founding date, Google Maps link, About Clinic, About Doctor and qualifications, areas served.
+Still pending from the client (placeholders are used on the site until then):
 
 ## 1. Hospital / Dr information
-- Hospital name and tagline, owner name, address, year of establishment, short description
-- Areas / cities served, logo (PNG transparent or SVG), brand colours or reference sites (optional)
+- Official email ID (site currently shows info@dishaclinic.example), social media links, high-quality logo PNG/SVG
+- Doctor photograph, clinic / infrastructure photographs, certificates / awards (optional)
 
 ## 2. Page content
 - Home: banners (heading, one-line sub-text, button text + link, image 1920x800 with no text on image), 50-80 word introduction, Why Choose Us points, customer reviews
@@ -403,7 +406,7 @@ Product images (`product-<name>.jpg`) are studio-style renders; replace them wit
 """)
 open(os.path.join(OUT, "REQUIREMENTS_CHECKLIST.md"), "w").write(f"""# Requirements Checklist (Website_Client_Requirement_Document_v3_1)
 ## 1. Hospital / Dr information
-- [x] Name + tagline, owner, address + year established, description, areas, logo (SVG), brand colours: config in content.py, header/footer/about/schema
+- [x] Name + tagline, owner, address (Kharadi, Pune), founded 20 Oct 2026, Google Maps link, clinic + doctor description, qualifications, areas, logo, brand colours (logo green/red): config in content.py, header/footer/about/schema
 ## 2. Pages
 - [x] Home: banner slider (heading, sub-text, button + link, image), 50-80 word intro, service highlight cards, Why Choose Us, testimonials, CTA (Contact / Book Appointment / WhatsApp)
 - [x] About: intro (150-200 words), Dr education and experience (timeline), mission and vision, why choose us, owner/team with photos, achievements/certificates/awards (lightbox)
@@ -426,7 +429,7 @@ open(os.path.join(OUT, "REQUIREMENTS_CHECKLIST.md"), "w").write(f"""# Requiremen
 - [x] Google Maps + social links · testimonials · responsive (mobile/tablet/desktop)
 ## Notes
 - Booking and enquiry forms are frontend only (WhatsApp/email hand-off); connect a backend before launch.
-- All content is dummy and marked [REPLACE]; placeholder images are SVG.
+- Client Section 1 data is integrated. Still placeholders: email ID, social links, doctor/clinic photos (stock), testimonials, product details, SEO keyword list.
 """)
 
 # ---- link check + report
