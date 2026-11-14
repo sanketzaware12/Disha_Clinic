@@ -455,12 +455,10 @@ SERVICES = [
 ]
 GROUPS = [
  ("Anorectal Surgeries", "cross", "Piles, fissure, fistula and more with laser and modern techniques", ["laser-piles-treatment","piles-haemorrhoid-surgery","fissure-treatment","fistula-treatment","pilonidal-sinus-surgery","perianal-abscess-drainage"]),
- ("Laparoscopic Surgeries", "pulse", "Keyhole surgery for faster recovery", ["laparoscopic-surgery","gallbladder-stone-surgery","hernia-repair-surgery","appendix-surgery","diagnostic-laparoscopy"]),
- ("Abdominal Surgeries", "shield", "Hernia, bowel and hydrocele surgery", ["bowel-surgery","hydrocele-surgery"]),
- ("Urological Surgeries", "heart", "Stones, prostate and urinary passage care", ["kidney-stone-treatment","ureteric-stone-removal","prostate-surgery","stricture-urethra"]),
- ("General Surgeries", "check", "Lumps, thyroid, nails and day-care surgery", ["lipoma-cyst-removal","breast-lump-removal","thyroid-surgery","circumcision-surgery","corn-surgery","ingrown-toenail-surgery"]),
- ("Infection & Foot Care", "clock", "Abscess and diabetic foot surgery", ["abscess-surgery","diabetic-foot-surgery"]),
- ("Endoscopy & Emergency", "eye", "Scopes and urgent GI surgical care", ["upper-gi-endoscopy","lower-gi-endoscopy","emergency-gi-surgery"]),
+ ("Laparoscopic & Abdominal Surgeries", "pulse", "Keyhole surgery and abdominal care for faster recovery", ["laparoscopic-surgery","gallbladder-stone-surgery","hernia-repair-surgery","appendix-surgery","diagnostic-laparoscopy","bowel-surgery"]),
+ ("Urological Surgeries", "heart", "Stones, prostate, urethra, hydrocele and circumcision care", ["kidney-stone-treatment","ureteric-stone-removal","prostate-surgery","stricture-urethra","hydrocele-surgery","circumcision-surgery"]),
+ ("General & Day-care Surgeries", "check", "Lumps, thyroid, abscess, corn and toenail surgery", ["lipoma-cyst-removal","breast-lump-removal","thyroid-surgery","abscess-surgery","corn-surgery","ingrown-toenail-surgery"]),
+ ("Endoscopy, Emergency & Foot Care", "eye", "Scopes, urgent GI surgical care and diabetic foot surgery", ["upper-gi-endoscopy","lower-gi-endoscopy","emergency-gi-surgery","diabetic-foot-surgery"]),
 ]
 CORE = ["laser-piles-treatment","piles-haemorrhoid-surgery","fissure-treatment","fistula-treatment","gallbladder-stone-surgery","hernia-repair-surgery","appendix-surgery","kidney-stone-treatment","lipoma-cyst-removal","circumcision-surgery","laparoscopic-surgery","pilonidal-sinus-surgery"]
 

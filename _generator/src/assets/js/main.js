@@ -14,9 +14,20 @@
   addEventListener('scroll', sc, { passive: true }); sc();
   tp.onclick = () => scrollTo({ top: 0, behavior: 'smooth' });
 
-  // mobile menu + dropdown
-  $('.burger').onclick = () => document.body.classList.toggle('menu-open');
+  // mobile menu: floating glass overlay, same button toggles open/close
+  const bg = $('.burger'), nv = $('#mainnav'), ov = $('.nav-ov');
+  const setMenu = on => {
+    if (on) { const r = hd.getBoundingClientRect(); document.documentElement.style.setProperty('--mt', Math.max(r.bottom + 8, 8) + 'px'); }
+    document.body.classList.toggle('menu-open', on);
+    bg.setAttribute('aria-expanded', on); bg.setAttribute('aria-label', on ? 'Close menu' : 'Open menu');
+    if (!on) $$('.dd.open').forEach(d => d.classList.remove('open'));
+  };
+  bg.onclick = () => setMenu(!document.body.classList.contains('menu-open'));
+  ov && (ov.onclick = () => setMenu(false));
+  addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+  addEventListener('resize', () => { if (innerWidth > 1020) setMenu(false); });
   $$('.dd > a').forEach(a => a.addEventListener('click', e => { if (innerWidth < 1021) { e.preventDefault(); a.parentElement.classList.toggle('open'); } }));
+  $$('.nav a').forEach(a => a.addEventListener('click', () => { if (!a.parentElement.classList.contains('dd')) setMenu(false); }));
 
   // scroll reveal + counters
   function count(el) {
@@ -24,9 +35,26 @@
     (function f(t) { const k = Math.min((t - t0) / d, 1), e = 1 - Math.pow(1 - k, 3); el.textContent = Math.round(end * e).toLocaleString('en-IN') + suf; if (k < 1) requestAnimationFrame(f); })(t0);
   }
   const io = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); if (e.target.dataset.count) count(e.target); }
+    if (e.isIntersecting) {
+      const el = e.target; el.classList.add('in'); io.unobserve(el); if (el.dataset.count) count(el);
+      // once the reveal animation is done, drop the reveal classes so hover lift/tilt effects work normally
+      if (el.classList.contains('reveal')) setTimeout(() => { el.classList.remove('reveal', 'in'); el.style.removeProperty('--d'); }, 1400 + (parseFloat(el.style.getPropertyValue('--d')) || 0) * 1000);
+    }
   }), { threshold: .12 });
-  $$('.reveal,[data-count]').forEach(el => io.observe(el));
+  $$('.reveal,[data-count],[data-io]').forEach(el => io.observe(el));
+
+  // doctor journey timeline: line fills while scrolling, cards reveal one by one
+  const tj = $('[data-tj]');
+  if (tj) {
+    const its = $$('.tj-i', tj); let mx = 0;
+    const upd = () => {
+      const r = tj.getBoundingClientRect(), tg = innerHeight * .62;
+      mx = Math.max(mx, Math.max(0, Math.min(1, (tg - r.top - 20) / Math.max(1, r.height - 110))));
+      tj.style.setProperty('--prog', mx.toFixed(4));
+      its.forEach(it => { const d = $('.tj-dot', it).getBoundingClientRect(); if (d.top + 24 < tg) it.classList.add('act'); });
+    };
+    addEventListener('scroll', upd, { passive: true }); addEventListener('resize', upd); upd();
+  }
 
   // hero slider
   const hero = $('.hero');
@@ -61,6 +89,7 @@
     const run = () => {
       const s = (q ? q.value : '').toLowerCase().trim(); let n = 0;
       items.forEach(it => { const ok = (cat === 'all' || it.dataset.cat === cat) && it.textContent.toLowerCase().includes(s); it.classList.toggle('hidden', !ok); if (ok) n++; });
+      $$('.gsec', fl).forEach(g => g.classList.toggle('hidden', !$$('[data-cat]:not(.hidden)', g).length));
       $('.empty', fl).classList.toggle('hidden', n > 0);
     };
     chips.forEach(c => c.onclick = () => { chips.forEach(x => x.classList.remove('on')); c.classList.add('on'); cat = c.dataset.f; run(); });

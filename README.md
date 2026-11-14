@@ -14,11 +14,9 @@ Add one entry to `SERVICES`, `PRODUCTS` or `BLOGS` in `content.py` and rebuild. 
 
 ## Images
 Placeholders are SVG files in `assets/img/`. Replace with real images using the same names (e.g. `banner`/`hero-1`, `service-<name>`, `product-<name>`) and update the extension if you use JPG/WebP. Sizes: banner 1920x800, service 800x600, product 800x800, logo SVG/PNG.
+Product images (`product-<name>.jpg`) are studio-style renders; replace them with real product photos (800x800) using the same file names.
 
 ## Going live
 1. Set `base` (domain) and `link_index=False` in `content.py`, rebuild, upload `site/` contents to hosting (clean URLs like /about-us/).
 2. Add Google Search Console verification and Analytics snippet (marked in `<head>`), submit `sitemap.xml`.
 3. Connect booking / enquiry forms to a backend or form service: search `TODO` in `assets/js/main.js`.
-
-## Dummy photos (replace before launch)
-Hero, doctor, about, gallery, service and blog photos are stock placeholders (`assets/img/*.jpg`, sources in `_generator/src/assets/img`). Replace with the clinic's own photos using the same file names and rebuild. Product images are still illustrated placeholders.

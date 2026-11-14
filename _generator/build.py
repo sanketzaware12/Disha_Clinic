@@ -19,7 +19,7 @@ ICONS = {
  "mail": '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>', "pin": '<path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>',
  "wa": '<path d="M3 21l1.6-4.8A9 9 0 1112 21a9 9 0 01-4.2-1z"/><path d="M9 9c0 3 3 6 6 6l1-2-2-1-1 .8c-.8-.4-1.6-1.2-2-2L11.8 10l-1-2z"/>',
  "arrow": '<path d="M5 12h14M13 6l6 6-6 6"/>', "menu": '<path d="M4 7h16M4 12h16M4 17h16"/>', "up": '<path d="M6 15l6-6 6 6"/>', "left": '<path d="M15 6l-6 6 6 6"/>', "right": '<path d="M9 6l6 6-6 6"/>',
- "cal": '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>', "award": '<circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 7 5-3 5 3-1.5-7"/>', "eye": '<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+ "cal": '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>', "award": '<circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 7 5-3 5 3-1.5-7"/>', "eye": '<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>', "x": '<path d="M6 6l12 12M18 6L6 18"/>', "zoom": '<circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5M11 8v6M8 11h6"/>',
 }
 def ic(n, cls="ico"): return f'<svg class="{cls}" viewBox="0 0 24 24" aria-hidden="true">{ICONS[n]}</svg>'
 def esc(s): return H.escape(s, quote=True)
@@ -71,8 +71,9 @@ def nav(active):
         on = ' class="on"' if key == active else ""
         if href is None:
             sd = slugs(); items = "".join(f'<div class="dg"><h5>{g[0]}</h5>' + "".join(f'<a href="§services/{x}/">{esc(sd[x][1])}</a>' for x in g[3]) + '</div>' for g in GROUPS)
-            out += f'<div class="dd"><a href="§services/"{on}>Services ▾</a><div class="dd-m">{items}</div></div>'
+            out += f'<div class="dd"><a href="§services/"{on}>Services ▾</a><div class="dd-m"><a class="dd-all" href="§services/">View all services {ic("arrow")}</a>{items}</div></div>'
         else: out += f'<a href="{href}"{on}>{lab}</a>'
+    out += f'<div class="nav-cta"><a class="btn btn-a btn-sm" href="tel:{C["phone_tel"]}">{ic("phone")} Call Now</a><a class="btn btn-p btn-sm" href="§book-appointment/">{ic("cal")} Book Now</a></div>'
     return out
 def social(): return "".join(f'<a href="{u}" aria-label="{k}" target="_blank" rel="noopener">{k[0]}</a>' for k, u in C["social"].items())
 
@@ -104,14 +105,14 @@ def page(path, title, desc, body, active="", crumbs=None, schema=None, og_img="h
 <div class="pre"><span></span></div><div class="pbar"></div>
 <div class="top"><div class="container"><div class="l"><span>{ic('clock')}{C['hours']}</span><span>{ic('phone')}Call / WhatsApp: <a href="tel:{C['phone_tel']}">{C['phone']}</a></span></div><div class="r"><a href="mailto:{C['email']}">{ic('mail')}{C['email']}</a><div class="soc">{social()}</div></div></div></div>
 <header class="hdr"><div class="container"><a class="logo" href="§" aria-label="{esc(C['name'])} home"><img src="§assets/img/emblem.png" alt="{esc(C['name'])} logo" width="52" height="48"><span class="lt"><b>DISHA</b><small>Advanced Surgical &amp; Laser Piles Clinic</small></span></a>
-<nav class="nav" aria-label="Main">{nav(active)}</nav>
-<div class="hcta"><a class="btn btn-a btn-sm" href="tel:{C['phone_tel']}">{ic('phone')} Call Now</a><a class="btn btn-p btn-sm pulse" href="§book-appointment/">{ic('cal')} Book Appointment</a><button class="burger" aria-label="Menu">{ic('menu')}</button></div></div></header>
+<nav class="nav" id="mainnav" aria-label="Main">{nav(active)}</nav>
+<div class="hcta"><a class="btn btn-a btn-sm" href="tel:{C['phone_tel']}">{ic('phone')} Call Now</a><a class="btn btn-p btn-sm pulse" href="§book-appointment/">{ic('cal')} Book Appointment</a><button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mainnav"><span class="b-o">{ic('menu')}</span><span class="b-c">{ic('x')}</span></button></div></div></header><div class="nav-ov" aria-hidden="true"></div>
 <main>{body}</main>
 <footer class="ft"><div class="container"><div class="grid">
-<div><a class="logo" href="§"><img class="ew" src="§assets/img/emblem.png" alt="{esc(C['name'])} logo" width="52" height="48"><span class="lt"><b>DISHA</b><small>Advanced Surgical &amp; Laser Piles Clinic</small></span></a><p>{esc(C['tagline'])}. Advanced laser piles and laparoscopic surgery in {C['city']} by {C['doctor']}.</p><div class="soc" style="margin-top:14px">{social()}</div></div>
-<div><h4>Quick Links</h4><ul><li><a href="§about-us/">About Us</a></li><li><a href="§services/">Services</a></li><li><a href="§products/">Products</a></li><li><a href="§blogs/">Blogs</a></li><li><a href="§book-appointment/">Book Appointment</a></li><li><a href="§contact-us/">Contact Us</a></li></ul></div>
-<div><h4>Our Services</h4><ul>{foot_svc}</ul></div>
-<div><h4>Contact</h4><ul><li>{ic('pin')} {esc(C['address'])}</li><li>{ic('phone')} <a href="tel:{C['phone_tel']}">{C['phone']}</a></li><li>{ic('mail')} <a href="mailto:{C['email']}">{C['email']}</a></li><li>{ic('clock')} {C['hours']}</li><li>{C['hours2']}</li></ul></div></div>
+<div class="f-brand"><a class="logo" href="§"><img class="ew" src="§assets/img/emblem.png" alt="{esc(C['name'])} logo" width="52" height="48"><span class="lt"><b>DISHA</b><small>Advanced Surgical &amp; Laser Piles Clinic</small></span></a><p>{esc(C['tagline'])}. Advanced laser piles and laparoscopic surgery in {C['city']} by {C['doctor']}.</p><div class="soc" style="margin-top:14px">{social()}</div></div>
+<div class="f-links"><h4>Quick Links</h4><ul><li><a href="§about-us/">About Us</a></li><li><a href="§services/">Services</a></li><li><a href="§products/">Products</a></li><li><a href="§blogs/">Blogs</a></li><li><a href="§book-appointment/">Book Appointment</a></li><li><a href="§contact-us/">Contact Us</a></li></ul></div>
+<div class="f-svc"><h4>Our Services</h4><ul>{foot_svc}</ul></div>
+<div class="f-contact"><h4>Contact</h4><ul><li>{ic('pin')} {esc(C['address'])}</li><li>{ic('phone')} <a href="tel:{C['phone_tel']}">{C['phone']}</a></li><li>{ic('mail')} <a href="mailto:{C['email']}">{C['email']}</a></li><li>{ic('clock')} {C['hours']}</li><li>{C['hours2']}</li></ul></div></div>
 <div class="bot"><span>© 2026 {esc(C['name'])}. All rights reserved.</span><div><a href="§privacy-policy/">Privacy Policy</a><a href="§terms-and-conditions/">Terms &amp; Conditions</a></div></div></div></footer>
 <div class="fl"><a class="wa" href="https://wa.me/{C['whatsapp']}?text=Hello%2C%20I%20would%20like%20to%20enquire" target="_blank" rel="noopener" aria-label="WhatsApp enquiry">{ic('wa')}</a><a class="cl" href="tel:{C['phone_tel']}" aria-label="Call now">{ic('phone')}</a></div>
 <button class="totop" aria-label="Back to top">{ic('up')}</button><div class="lb"><img src="" alt="Enlarged view"></div>
@@ -141,7 +142,7 @@ def svc_card(s, i=0):
 def blog_card(b, i=0):
     return f'<article class="card reveal" style="--d:{(i%3)*.08}s" data-cat="{b["cat"]}"><a class="im" href="§blogs/{b["slug"]}/"><img src="§assets/img/blog-{b["slug"]}.jpg" alt="{esc(b["title"])}" width="800" height="450" loading="lazy"></a><div class="bd"><div class="meta"><span class="tag">{b["cat"]}</span><span>{b["date_h"]}</span><span>{b["mins"]} min read</span></div><h3>{esc(b["title"])}</h3><p>{esc(b["sub"])}</p><a class="more" href="§blogs/{b["slug"]}/">Read Article {ic("arrow")}</a></div></article>'
 def prod_card(p, i=0):
-    return f'<article class="card reveal" style="--d:{(i%4)*.08}s" data-cat="prod"><a class="im" href="§products/{p[0]}/" style="aspect-ratio:1"><img src="§assets/img/product-{p[0]}.svg" alt="{esc(p[1])}" width="800" height="800" loading="lazy"><span class="ptag">Recommended</span></a><div class="bd"><h3>{esc(p[1])}</h3><p>{esc(p[2])}</p><a class="more" href="§products/{p[0]}/">View Details {ic("arrow")}</a></div></article>'
+    return f'<article class="card reveal" style="--d:{(i%4)*.08}s" data-cat="prod"><a class="im" href="§products/{p[0]}/" style="aspect-ratio:1"><img src="§assets/img/product-{p[0]}.jpg" alt="{esc(p[1])}" width="800" height="800" loading="lazy"><span class="ptag">Recommended</span></a><div class="bd"><h3>{esc(p[1])}</h3><p>{esc(p[2])}</p><a class="more" href="§products/{p[0]}/">View Details {ic("arrow")}</a></div></article>'
 
 # ---------- blog prep ----------
 import datetime
@@ -182,7 +183,6 @@ open(os.path.join(OUT, "assets/img/favicon.svg"), "w").write('<svg xmlns="http:/
 ph("mission.svg", 800, 600, 3, "eye")
 for k in range(1, 5): ph(f"cert-{k}.svg", 800, 600, k, "award")
 for k in range(3): ph(f"team-{k+1}.svg", 600, 600, k + 1, "user")
-for k, p in enumerate(PRODUCTS): ph(f"product-{p[0]}.svg", 800, 800, k + 2, ["bed","heart","pulse","shield","clock","check","star","cross"][k % 8])
 
 # ---- config.js
 open(os.path.join(OUT, "assets/js/config.js"), "w").write("window.SITE=" + json.dumps({"name": C["name"], "whatsapp": C["whatsapp"], "email": C["email"], "slots": C["slots"], "closedDays": C["closed_days"]}) + ";")
@@ -210,41 +210,57 @@ doc = surgeon("section alt", "Meet the Doctor", "§about-us/")
 fac = f'<section class="section dark"><div class="container">{sh("Facilities", "Built for safe, comfortable care")}<div class="fac">{"".join(f"<div class=\"reveal\">{ic(['clock','pulse','bed','shield','cross','pin'][i])}<span>{f}</span></div>" for i, f in enumerate(FACILITIES))}</div></div></section>'
 tests = f'''<section class="section"><div class="container">{sh("Testimonials", "What our patients say")}<div class="tsl reveal">{"".join(f"<div class=\"tt{' on' if i==0 else ''}\"><div class=\"stars\">★★★★★</div><p>“{t}”</p><div class=\"who\"><div class=\"av\">{n[0]}</div><div><b>{n}</b><small>{r}</small></div></div></div>" for i, (n, r, t) in enumerate(TESTIMONIALS))}<div class="tdots">{"".join(f"<button class=\"{'on' if i==0 else ''}\" aria-label=\"Review {i+1}\"></button>" for i in range(3))}</div></div></div></section>'''
 tests = tests if TESTIMONIALS else ""
-groups_html = '<section class="section alt grp-sec"><div class="container">' + sh("Complete Care", "Surgeries we do", "Browse every department. Each procedure has its own detailed page.") + '<div class="grp">' + "".join('<div class="card gcard reveal" style="--d:%.2fs"><div class="gtop"><div class="ib">%s</div><div><h3>%s</h3><p>%s</p></div></div><ul>%s</ul><a class="more" href="§services/">View all %s %s</a></div>' % ((i%4)*.06, ic(g[1]), g[0], g[2], "".join('<li><a href="§services/%s/">%s<span>%s</span></a></li>' % (x, ic("arrow"), esc(slugs()[x][1])) for x in g[3]), g[0].split()[0].lower(), ic("arrow")) for i, g in enumerate([GROUPS[k] for k in (0,1,4,3,2,5,6)])) + '</div></div></section>'
+groups_html = '<section class="section alt grp-sec"><div class="container">' + sh("Complete Care", "Surgeries we do", "Browse every department. Each procedure has its own detailed page.") + '<div class="grp">' + "".join('<div class="card gcard reveal" style="--d:%.2fs"><div class="gtop"><div class="ib">%s</div><div><h3>%s</h3><p>%s</p></div></div><ul>%s</ul><a class="more" href="§services/">View all services %s</a></div>' % ((i%4)*.06, ic(g[1]), g[0], g[2], "".join('<li><a href="§services/%s/">%s<span>%s</span></a></li>' % (x, ic("arrow"), esc(slugs()[x][1])) for x in g[3]), ic("arrow")) for i, g in enumerate(GROUPS)) + '</div></div></section>'
 home_blog = f'<section class="section alt"><div class="container">{sh("Latest Blogs", "Health notes from our surgical desk")}<div class="grid g3">{"".join(blog_card(b, i) for i, b in enumerate(BLOGS))}</div><div style="text-align:center;margin-top:26px"><a class="btn btn-p" href="§blogs/">All Articles {ic("arrow")}</a></div></div></section>'
 home_faq = f'<section class="section"><div class="container" style="max-width:820px">{sh("FAQ", "Questions patients ask us")}{faq(HOME_FAQ)}</div></section>'
 def contact_prev():
     return f'''<section class="section alt"><div class="container split"><div class="reveal"><span class="eyebrow">Visit Us</span><h2>Find us in {C["city"]}</h2>
 <div class="ci"><div class="ib">{ic("pin")}</div><div><b>Address</b>{esc(C["address"])}</div></div><div class="ci"><div class="ib">{ic("phone")}</div><div><b>Appointments</b><a href="tel:{C["appt_tel"]}">{C["appt"]}</a></div></div><div class="ci"><div class="ib">{ic("clock")}</div><div><b>Working Hours</b>{C["hours"]}<br>{C["hours2"]}</div></div></div>
 <div class="reveal"><iframe class="map" title="{esc(C["name"])} location on Google Maps" src="{C["map_embed"]}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div></section>'''
-page("", f"Best Piles Treatment Clinic in {C['city']} | {C['short']}", f"{C['name']} in {C['city']} offers laser piles, fissure, fistula and laparoscopic surgery by Dr. Abhijeet Shinde. Open daily 10 AM to 9 PM. Call now.", hero + stats + intro + home_svc + groups_html + why + doc + fac + tests + home_blog + home_faq + cta() + contact_prev(), "home", None, [HOSP, PHYS])
+page("", f"Best Piles Treatment Clinic in {C['city']} | {C['short']}", f"{C['name']} in {C['city']} offers laser piles, fissure, fistula and laparoscopic surgery by Dr. Abhijeet Shinde. Open daily 10 AM to 9 PM. Call now.", hero + stats + intro + home_svc + groups_html + why + fac + tests + home_blog + home_faq + cta(), "home", None, [HOSP, PHYS])
 
 # ---- ABOUT
-timeline = [("Qualification", "General & Laparoscopic Surgeon", "[REPLACE: degrees, college, year]"), ("Specialisation", "Consultant Proctologist", "Piles, fissure, fistula & anorectal disorders"), ("Experience", "Laparoscopic and general surgery", "[REPLACE: years and hospitals]"), ("Clinic", f"{C['name']}", f"{C['city']}, Maharashtra"), ("Today", "Laser and advanced surgical care", "Journey towards better life")]
+timeline = [("Qualification", "General & Laparoscopic Surgeon", "[REPLACE: degrees, college, year]", "award"), ("Specialisation", "Consultant Proctologist", "Piles, fissure, fistula & anorectal disorders", "user"), ("Experience", "Laparoscopic and general surgery", "[REPLACE: years and hospitals]", "pulse"), ("Clinic", f"{C['name']}", f"{C['city']}, Maharashtra", "pin"), ("Today", "Laser and advanced surgical care", "Journey towards better life", "heart")]
+def journey_html():
+    dn = C["doctor"]
+    items = "".join(f'<div class="tj-i {"l" if i % 2 == 0 else "r"}"><span class="tj-dot">{ic(ic_)}</span><div class="tj-card"><span class="tj-no">{i+1:02d}</span><small class="tj-k">{y}</small><h3>{t}</h3><p>{d}</p></div></div>' for i, (y, t, d, ic_) in enumerate(timeline))
+    head = sh("Our Doctor", dn + ": the journey", "From training to treating, one surgeon who stays with you at every step.")
+    return (f'<section class="section tj-sec"><div class="container">{head}'
+            f'<div class="tj" data-tj><div class="tj-line"><span class="tj-fill"></span></div>{items}<div class="tj-end reveal"><a class="btn btn-p" href="§book-appointment/">{ic("cal")} Start your journey with us</a></div></div></div></section>')
+JOURNEY = [("1","Call or Book","Call, WhatsApp or book online. Open daily 10 AM to 9 PM.","phone"),("2","Private Consultation","A gentle, private examination and a clear explanation.","user"),("3","Treatment Plan","The simplest effective option, with laser or surgery only when needed.","shield"),("4","Recovery & Follow-up","Aftercare guidance and follow-up with the same surgeon.","heart")]
+def steps_html():
+    cards = "".join(f'<div class="jr-i reveal" style="--d:{i*.1}s"><span class="jr-n">{n}</span><div class="jr-ic">{ic(ic_)}</div><h3>{t}</h3><p>{d}</p></div>' for i, (n, t, d, ic_) in enumerate(JOURNEY))
+    return f'<section class="section alt"><div class="container">{sh("Your Journey", "What to expect when you visit", "A simple, comfortable path from first call to full recovery.")}<div class="jr" data-io>{cards}</div></div></section>'
 about = header("About Us", f"Meet the team behind {esc(C['name'])}: experienced surgeons committed to safe, compassionate care.", [("About Us", None)]) + f'''
 <section class="section"><div class="container split"><div class="frame reveal"><img src="§assets/img/about-who.jpg" alt="Consultation at {esc(C["name"])}" width="800" height="640"></div><div class="reveal"><span class="eyebrow">Who We Are</span><h2>Compassion, skill and trust in every procedure</h2>
 <p>{esc(C["name"])} was started by {C["doctor"]}, a General &amp; Laparoscopic Surgeon and Consultant Proctologist, with a simple belief: surgery should be safe, transparent and humane. The clinic focuses on advanced laser and surgical treatment of piles, fissure and fistula, along with laparoscopic, urological and general surgery.</p>
 <p>We believe the patient should always understand their diagnosis, options and recovery plan before agreeing to surgery. That is why Dr. Shinde personally examines, operates and follows up on every case, so nothing is lost between handovers. We follow strict hygiene protocols, keep every consultation private, and give honest opinions, including a second opinion without pressure when you want one.</p>
 <a class="btn btn-p" href="§book-appointment/">Book Appointment {ic("arrow")}</a></div></div></section>
 {surgeon("section alt", "Book a Consultation", "§book-appointment/", "Our Surgeon", "Contact Us", "§contact-us/")}
-<section class="section"><div class="container">{sh("Our Doctor", f"{C['doctor']}: education &amp; experience", f"{C['quals']}")}<div class="tl">{"".join(f"<div class=\"tli reveal\"><small>{y}</small><b>{t}</b><small>{d}</small></div>" for y, t, d in timeline)}</div></div></section>
+{journey_html()}
 <section class="section alt"><div class="container">{sh("Mission &amp; Vision", "What drives us")}<div class="grid g2"><div class="card mv reveal"><div class="ib">{ic("heart")}</div><h3>Our Mission</h3><p>To deliver safe, ethical and affordable surgical care with compassion, clear communication and the best available technology.</p></div><div class="card mv reveal" style="--d:.1s"><div class="ib">{ic("eye")}</div><h3>Our Vision</h3><p>To be the most trusted laser and surgical piles clinic in the region, known for honest advice, excellent outcomes and a patient experience that feels like family.</p></div></div></div></section>
 <section class="section"><div class="container">{sh("Why Choose Us", "Reasons patients trust us")}<div class="grid g3">{"".join(f"<div class=\"card why reveal\" style=\"--d:{(i%3)*.08}s\"><div class=\"ib\">{ic(a)}</div><h3>{b}</h3><p>{c}</p></div>" for i, (a, b, c) in enumerate(WHY))}</div></div></section>
-<section class="section alt"><div class="container">{sh("Your Journey", "What to expect when you visit", "A simple, comfortable path from first call to full recovery.")}<div class="grid g4 steps">{"".join(f"<div class=\"card why reveal\" style=\"--d:{i*.08}s\"><div class=\"ib\">{n}</div><h3>{t}</h3><p>{d}</p></div>" for i, (n, t, d) in enumerate([("1","Call or Book","Call, WhatsApp or book online. Open daily 10 AM to 9 PM."),("2","Private Consultation","A gentle, private examination and a clear explanation."),("3","Treatment Plan","The simplest effective option, with laser or surgery only when needed."),("4","Recovery & Follow-up","Aftercare guidance and follow-up with the same surgeon.")]))}</div></div></section>
+{steps_html()}
 <section class="section"><div class="container">{sh("Our Infrastructure", "A calm, modern environment")}<div class="grid g3">{"".join(f"<div class=\"frame reveal\"><img src=\"§assets/img/gallery-{i}.jpg\" alt=\"Clinic infrastructure photo {i}\" width=\"800\" height=\"600\" loading=\"lazy\"></div>" for i in (1, 2, 3))}</div></div></section>''' + cta()
 page("about-us/", f"About Us | {C['name']}", f"Learn about {C['name']} in {C['city']}, our founder {C['doctor']}, our mission, vision, experienced team, certificates and patient-first approach to surgery.", about, "about", [("About Us", "about-us/")], [PHYS])
 
 # ---- SERVICES
-svc = header("Our Services", "Laser piles care, laparoscopic and general surgery, each explained clearly with its own detailed page.", [("Services", None)]) + f'<section class="section"><div class="container" data-filter-root><div class="chips"><input class="search" type="search" placeholder="Search services…" aria-label="Search services"></div>{"".join(f'<div class="gh"><span class="ib">{ic(g[1])}</span><h2>{g[0]}</h2></div><div class="grid g3">' + "".join(svc_card(next(s for s in SERVICES if s[0]==x), i) for i, x in enumerate(g[3])) + "</div>" for g in GROUPS)}<p class="empty hidden">No services match your search.</p></div></section>' + cta()
+SD = slugs()
+def svc_group(g):
+    n = len(g[3]); cls = "g4" if n == 4 else "g3"
+    cards = "".join(svc_card(SD[x], i) for i, x in enumerate(g[3]))
+    return (f'<div class="gsec"><div class="gh reveal"><span class="ib">{ic(g[1])}</span><div class="gt"><h2>{g[0]}</h2><p>{g[2]}</p></div><span class="gn">{n} treatments</span></div><div class="grid {cls}">{cards}</div></div>')
+svc = header("Our Services", "Laser piles care, laparoscopic and general surgery, each explained clearly with its own detailed page.", [("Services", None)]) + f'<section class="section"><div class="container" data-filter-root><div class="chips"><input class="search" type="search" placeholder="Search services…" aria-label="Search services"></div>{"".join(svc_group(g) for g in GROUPS)}<p class="empty hidden">No services match your search.</p></div></section>' + cta()
 page("services/", f"Surgical Services in {C['city']} | {C['name']}", f"Explore laser piles, fissure, fistula, laparoscopic, hernia, gallbladder, urology and general surgery services at {C['name']}, {C['city']}.", svc, "services", [("Services", "services/")])
 for k, s in enumerate(SERVICES):
     slug, name, icn, short, intro_t, full, feats, faqs, kw = s
     rel = "".join(f'<a href="§services/{r[0]}/">{ic("arrow")} {esc(r[1])}</a>' for r in SERVICES if r[0] != slug)[:3000]
     rel = "".join(f'<a href="§services/{r[0]}/">{ic("arrow")} {esc(r[1])}</a>' for r in [x for x in SERVICES if x[0] != slug][:5])
     body = header(esc(name), esc(intro_t), [("Services", "services/"), (name, None)]) + f'''<section class="section"><div class="container lay"><div class="prose">
-<div class="hero-img reveal"><img src="§assets/img/service-{slug}.jpg" alt="{esc(name)} - {kw[0]}" width="800" height="600"></div>
-<p class="lead reveal">{esc(intro_t)}</p><h2>{esc(name)} in {C["city"]}</h2><p>{esc(full)}</p><p>Looking for a {kw[0]}? Our team provides {kw[1]} and related care with clear communication from consultation to follow-up.</p>
-<h2>Key Features &amp; Benefits</h2><ul class="ticks" style="margin-left:0">{"".join(f"<li>{ic('check')} {esc(f)}</li>" for f in feats)}</ul>
+<div class="svc-intro reveal"><div class="svc-pic" data-lb="§assets/img/service-{slug}.jpg" title="Click to enlarge"><img src="§assets/img/service-{slug}.jpg" alt="{esc(name)} - {kw[0]}" width="800" height="600"><span class="badge">{ic(icn)}</span><span class="zoom">{ic("zoom")}</span></div>
+<div class="svc-txt"><span class="eyebrow">{esc(next((g[0] for g in GROUPS if slug in g[3]), "Surgical Care"))}</span><p class="lead">{esc(short)}</p><div class="svc-chips"><span>{ic("user")} Consultant surgeon</span><span>{ic("shield")} Private consultation</span><span>{ic("clock")} {C["hours"]}</span></div><div class="svc-btns"><a class="btn btn-p btn-sm" href="§book-appointment/">{ic("cal")} Book Appointment</a><a class="btn btn-ol btn-sm" href="https://wa.me/{C["whatsapp"]}" target="_blank" rel="noopener">{ic("wa")} WhatsApp</a></div></div></div>
+<h2>{esc(name)} in {C["city"]}</h2><p>{esc(full)}</p><p>Looking for a {kw[0]}? Our team provides {kw[1]} and related care with clear communication from consultation to follow-up.</p>
+<h2>Key Features &amp; Benefits</h2><div class="featgrid">{"".join(f"<div class='fe reveal' style='--d:{(i%2)*.08}s'>{ic('check')}<span>{esc(f)}</span></div>" for i, f in enumerate(feats))}</div>
 <h2>Gallery</h2><div class="gal"><img src="§assets/img/gallery-1.jpg" alt="{kw[0]} - consultation room" width="800" height="600" loading="lazy"><img src="§assets/img/gallery-2.jpg" alt="{kw[2]} - operation theatre" width="800" height="600" loading="lazy"><img src="§assets/img/gallery-3.jpg" alt="{kw[3]} - recovery room" width="800" height="600" loading="lazy"></div>
 <h2>Frequently Asked Questions</h2>{faq(faqs)}</div>
 <aside class="aside"><div class="box pri"><h3>Book an Appointment</h3><p style="margin-bottom:12px">Consult Dr. Shinde about {esc(name.lower())}.</p><a class="btn btn-a" style="width:100%;justify-content:center" href="§book-appointment/">{ic("cal")} Book Now</a></div>
@@ -260,9 +276,9 @@ prods = header("Our Products", "Recovery and care products recommended by our su
 page("products/", f"Surgical Care Products in {C['city']} | {C['name']}", f"Browse sitz bath tubs, piles comfort cushions, recovery kits, support binders and stockings recommended by Dr. Shinde at {C['name']}.", prods, "products", [("Products", "products/")])
 for k, p in enumerate(PRODUCTS):
     rel = "".join(f'<a href="§products/{r[0]}/">{ic("arrow")} {esc(r[1])}</a>' for r in PRODUCTS if r[0] != p[0])
-    body = header(esc(p[1]), esc(p[2]), [("Products", "products/"), (p[1], None)]) + f'''<section class="section"><div class="container lay"><div class="prose"><div class="split" style="align-items:start"><div class="frame reveal"><img src="§assets/img/product-{p[0]}.svg" alt="{esc(p[1])}" width="800" height="800"></div><div class="reveal"><span class="eyebrow">Product</span><h2 style="margin-top:0">{esc(p[1])}</h2><p>{esc(p[3])}</p><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-p" href="https://wa.me/{C["whatsapp"]}?text=I%20would%20like%20to%20enquire%20about%20{esc(p[1]).replace(" ", "%20")}" target="_blank" rel="noopener">{ic("wa")} Enquire on WhatsApp</a><a class="btn btn-ol" href="§contact-us/">Contact Us</a></div></div></div></div>
+    body = header(esc(p[1]), esc(p[2]), [("Products", "products/"), (p[1], None)]) + f'''<section class="section"><div class="container lay"><div class="prose"><div class="split" style="align-items:start"><div class="frame reveal"><img src="§assets/img/product-{p[0]}.jpg" alt="{esc(p[1])}" width="800" height="800"></div><div class="reveal"><span class="eyebrow">Product</span><h2 style="margin-top:0">{esc(p[1])}</h2><p>{esc(p[3])}</p><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-p" href="https://wa.me/{C["whatsapp"]}?text=I%20would%20like%20to%20enquire%20about%20{esc(p[1]).replace(" ", "%20")}" target="_blank" rel="noopener">{ic("wa")} Enquire on WhatsApp</a><a class="btn btn-ol" href="§contact-us/">Contact Us</a></div></div></div></div>
 <aside class="aside"><div class="box rel"><h3>Related Products</h3>{rel}</div><div class="box pri"><h3>Need advice?</h3><p style="margin-bottom:12px">Ask our team which product suits you.</p><a class="btn btn-a" href="tel:{C["phone_tel"]}">{ic("phone")} Call Now</a></div></aside></div></section>'''
-    sch = [{"@context": "https://schema.org", "@type": "Product", "name": p[1], "description": p[3], "image": f"{C['base']}/assets/img/product-{p[0]}.svg", "brand": {"@type": "Brand", "name": C["name"]}}]
+    sch = [{"@context": "https://schema.org", "@type": "Product", "name": p[1], "description": p[3], "image": f"{C['base']}/assets/img/product-{p[0]}.jpg", "brand": {"@type": "Brand", "name": C["name"]}}]
     page(f"products/{p[0]}/", f"{p[1]}", f"{p[2]} Available at {C['name']}, {C['city']}.", body + cta(), "products", [("Products", "products/"), (p[1], f"products/{p[0]}/")], sch)
 
 # ---- BLOGS
@@ -378,6 +394,7 @@ Add one entry to `SERVICES`, `PRODUCTS` or `BLOGS` in `content.py` and rebuild. 
 
 ## Images
 Placeholders are SVG files in `assets/img/`. Replace with real images using the same names (e.g. `banner`/`hero-1`, `service-<name>`, `product-<name>`) and update the extension if you use JPG/WebP. Sizes: banner 1920x800, service 800x600, product 800x800, logo SVG/PNG.
+Product images (`product-<name>.jpg`) are studio-style renders; replace them with real product photos (800x800) using the same file names.
 
 ## Going live
 1. Set `base` (domain) and `link_index=False` in `content.py`, rebuild, upload `site/` contents to hosting (clean URLs like /about-us/).
