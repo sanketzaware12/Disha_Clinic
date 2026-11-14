@@ -43,18 +43,18 @@
   }), { threshold: .12 });
   $$('.reveal,[data-count],[data-io]').forEach(el => io.observe(el));
 
-  // doctor journey timeline: line fills while scrolling, cards reveal one by one
-  const tj = $('[data-tj]');
-  if (tj) {
-    const its = $$('.tj-i', tj); let mx = 0;
-    const upd = () => {
-      const r = tj.getBoundingClientRect(), tg = innerHeight * .62;
-      mx = Math.max(mx, Math.max(0, Math.min(1, (tg - r.top - 20) / Math.max(1, r.height - 110))));
-      tj.style.setProperty('--prog', mx.toFixed(4));
-      its.forEach(it => { const d = $('.tj-dot', it).getBoundingClientRect(); if (d.top + 24 < tg) it.classList.add('act'); });
+  // journey timelines (doctor + patient): flow line fills fully, dots + cards reveal one by one
+  $$('[data-tj]').forEach(tj => {
+    const its = $$('.tj-i', tj);
+    const run = () => {
+      tj.classList.add('go');
+      its.forEach((it, k) => setTimeout(() => it.classList.add('act'), 250 + k * 520));
     };
-    addEventListener('scroll', upd, { passive: true }); addEventListener('resize', upd); upd();
-  }
+    if ('IntersectionObserver' in window) {
+      const o = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { run(); o.disconnect(); } }), { threshold: .25 });
+      o.observe(tj);
+    } else run();
+  });
 
   // hero slider
   const hero = $('.hero');
