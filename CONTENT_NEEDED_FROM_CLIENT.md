@@ -4,7 +4,7 @@ Still pending from the client (placeholders are used on the site until then):
 
 ## 1. Hospital / Dr information
 - Official email ID (site currently shows info@dishaclinic.example), social media links, high-quality logo PNG/SVG
-- Doctor photograph, clinic / infrastructure photographs, certificates / awards (optional)
+- Doctor photograph, clinic / infrastructure photographs and certificate photo: RECEIVED and added to Home, About and Contact pages (more team / procedure photos welcome)
 
 ## 2. Page content
 - Home: banners (heading, one-line sub-text, button text + link, image 1920x800 with no text on image), 50-80 word introduction, Why Choose Us points, customer reviews
