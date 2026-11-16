@@ -1,22 +1,41 @@
-# DISHA Advanced Surgical & Laser Piles Clinic - Website Template
-Static HTML/CSS/JS multipage site (no backend). Open `index.html` to preview.
+# DISHA Advanced Surgical & Laser Piles Clinic - Website
+Pure static HTML / CSS / JavaScript multipage site. No backend, no build step, no installs.
+Open `index.html` in a browser (or upload the folder to any hosting) - that's all.
 
-## Structure
-`index.html` Home · `about-us/` · `services/` (+8 detail pages) · `products/` (+4 detail pages) · `blogs/` (+3 articles) · `book-appointment/` · `contact-us/` · `privacy-policy/` · `terms-and-conditions/` · `404.html` · `sitemap.xml` · `robots.txt` · `assets/` (css, js, img)
+## What lives where
+| What | Where |
+|---|---|
+| Clinic name, phone, WhatsApp, email, address, timings, social links, footer text | `assets/js/config.js` |
+| Services menu (header dropdown) + services listed in the footer | `assets/js/config.js` (`serviceGroups`, `footerServices`) |
+| Booking time slots, closed days | `assets/js/config.js` |
+| Top bar, header + menu, footer, floating WhatsApp/Call buttons | rendered by `assets/js/layout.js` from `config.js` (edit once, all 49 pages update) |
+| Colours, spacing, animations | `assets/css/style.css` (variables at the top: `--p`, `--pd`, `--a`) |
+| Menu / sliders / forms / animations behaviour | `assets/js/main.js` |
+| Page text, headings, FAQs, images | that page's own `index.html` |
 
-## Change brand, numbers, content (one place)
-All content lives in `_generator/content.py` (brand, phones, WhatsApp, email, address, map, hours, time slots, social links, services, products, blogs, legal text).
-Edit it, then run `cd _generator && python build.py` - the full site is regenerated in `_generator/site/`.
-Colours: variables at the top of `assets/css/style.css` (`--p`, `--pd`, `--a`).
+## Add a new service
+1. Copy an existing folder, e.g. `services/fistula-treatment/` -> `services/my-new-service/`, edit its `index.html` (title, description, canonical URL, text, image `assets/img/service-my-new-service.jpg`).
+2. Add one line in `assets/js/config.js` -> `serviceGroups` (slug = folder name). The header menu updates on every page. Optionally add the slug to `footerServices`.
+3. Add its card in `services/index.html` (copy a neighbouring card) and a `<url>` entry in `sitemap.xml`.
 
-## Add a service / product / blog
-Add one entry to `SERVICES`, `PRODUCTS` or `BLOGS` in `content.py` and rebuild. Pages, menus, cards, sitemap and schema are created automatically.
+## Add a new blog / product
+Copy an existing folder inside `blogs/` or `products/`, edit its `index.html`, add its card in that section's `index.html` and a `<url>` in `sitemap.xml`. (Blogs and products are not in the header menu, so `config.js` needs no change.)
+
+## One-time Find & Replace before going live (VS Code: Ctrl+Shift+H, search whole folder)
+These appear inside page text, FAQ answers, CTA buttons and SEO schema, so they are not driven by `config.js`:
+| Search for | Replace with |
+|---|---|
+| `919766815782` (WhatsApp / tel links) | real number, digits only |
+| `+91 97668 15782` (text shown on pages) | real number as displayed |
+| `info@dishaclinic.example` | real email |
+| `dishaclinic.example` (canonical, schema, sitemap, robots) | real domain |
+| `10:00 AM – 9:00 PM` / `10:00 AM to 9:00 PM` | real timings |
+Then update the same values in `assets/js/config.js`.
 
 ## Images
-Placeholders are SVG files in `assets/img/`. Replace with real images using the same names (e.g. `banner`/`hero-1`, `service-<name>`, `product-<name>`) and update the extension if you use JPG/WebP. Sizes: banner 1920x800, service 800x600, product 800x800, logo SVG/PNG.
-Product images (`product-<name>.jpg`) are studio-style renders; replace them with real product photos (800x800) using the same file names.
+Replace files in `assets/img/` using the same file names (`hero-1`, `service-<name>`, `product-<name>`, `blog-<name>`, ...). Sizes: banner 1920x800, service 800x600, product 800x800, logo SVG/PNG. Hero, doctor, about, gallery, service and blog photos are stock placeholders; product images are illustrated placeholders.
 
 ## Going live
-1. Set `base` (domain) and `link_index=False` in `content.py`, rebuild, upload `site/` contents to hosting (clean URLs like /about-us/).
-2. Add Google Search Console verification and Analytics snippet (marked in `<head>`), submit `sitemap.xml`.
+1. Do the Find & Replace above.
+2. Add Google Search Console verification and Analytics snippet in `<head>` (marked `[REPLACE]`), submit `sitemap.xml`.
 3. Connect booking / enquiry forms to a backend or form service: search `TODO` in `assets/js/main.js`.

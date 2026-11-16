@@ -1,4 +1,4 @@
-/* Main site script. Settings come from assets/js/config.js (generated from content.py) */
+/* Main site script. Settings come from assets/js/config.js */
 (function () {
   const $ = (s, c = document) => c.querySelector(s), $$ = (s, c = document) => [...c.querySelectorAll(s)];
   const S = window.SITE || {};

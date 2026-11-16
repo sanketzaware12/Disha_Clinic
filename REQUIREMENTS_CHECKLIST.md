@@ -1,6 +1,6 @@
 # Requirements Checklist (Website_Client_Requirement_Document_v3_1)
 ## 1. Hospital / Dr information
-- [x] Name + tagline, owner, address (Kharadi, Pune), founded 20 Oct 2026, Google Maps link, clinic + doctor description, qualifications, areas, logo, brand colours (logo green/red): config in content.py, header/footer/about/schema
+- [x] Name + tagline, owner, address (Kharadi, Pune), founded 20 Oct 2026, Google Maps link, clinic + doctor description, qualifications, areas, logo, brand colours (logo green/red): config in assets/js/config.js and the HTML pages (header/footer/about/schema)
 ## 2. Pages
 - [x] Home: banner slider (heading, sub-text, button + link, image), 50-80 word intro, service highlight cards, Why Choose Us, testimonials, CTA (Contact / Book Appointment / WhatsApp)
 - [x] About: intro (150-200 words), Dr education and experience (timeline), mission and vision, why choose us, owner/team with photos, achievements/certificates/awards (lightbox)
