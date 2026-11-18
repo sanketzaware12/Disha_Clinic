@@ -47,54 +47,25 @@ window.SITE = {
   /* Services menu (header dropdown). To add a service: copy a services/<folder>/, then add one line here. */
   serviceGroups: [
     { title: "Anorectal Surgeries", items: [
-      { slug: "laser-piles-treatment", label: "Laser Piles Treatment" },
       { slug: "piles-haemorrhoid-surgery", label: "Piles (Haemorrhoid) Treatment" },
       { slug: "fissure-treatment", label: "Anal Fissure Treatment" },
       { slug: "fistula-treatment", label: "Anal Fistula Treatment" },
       { slug: "pilonidal-sinus-surgery", label: "Pilonidal Sinus Treatment" },
-      { slug: "perianal-abscess-drainage", label: "Perianal Abscess Treatment" },
     ] },
     { title: "Laparoscopic & Abdominal Surgeries", items: [
-      { slug: "laparoscopic-surgery", label: "Laparoscopic (Keyhole) Surgery" },
       { slug: "gallbladder-stone-surgery", label: "Gallbladder Stone Surgery" },
       { slug: "hernia-repair-surgery", label: "Hernia Repair Surgery" },
       { slug: "appendix-surgery", label: "Appendix Surgery" },
-      { slug: "diagnostic-laparoscopy", label: "Diagnostic Laparoscopy" },
-      { slug: "bowel-surgery", label: "Small & Large Bowel Surgery" },
-    ] },
-    { title: "Urological Surgeries", items: [
-      { slug: "kidney-stone-treatment", label: "Kidney Stone Treatment" },
-      { slug: "ureteric-stone-removal", label: "Ureteric Stone Removal (URS)" },
-      { slug: "prostate-surgery", label: "Prostate Surgery (TURP)" },
-      { slug: "stricture-urethra", label: "Stricture Urethra Treatment" },
-      { slug: "hydrocele-surgery", label: "Hydrocele Surgery" },
-      { slug: "circumcision-surgery", label: "Circumcision (Adult & Child)" },
-    ] },
-    { title: "General & Day-care Surgeries", items: [
-      { slug: "lipoma-cyst-removal", label: "Lipoma, Cyst & Swelling Removal" },
-      { slug: "breast-lump-removal", label: "Breast Lump Removal" },
-      { slug: "thyroid-surgery", label: "Thyroid Surgery" },
-      { slug: "abscess-surgery", label: "Abscess Surgery" },
-      { slug: "corn-surgery", label: "Foot Corn Treatment" },
-      { slug: "ingrown-toenail-surgery", label: "Ingrown Toenail Surgery" },
-    ] },
-    { title: "Endoscopy, Emergency & Foot Care", items: [
-      { slug: "upper-gi-endoscopy", label: "Upper GI Endoscopy" },
-      { slug: "lower-gi-endoscopy", label: "Lower GI Endoscopy (Colonoscopy)" },
-      { slug: "emergency-gi-surgery", label: "Emergency G.I. Surgery" },
-      { slug: "diabetic-foot-surgery", label: "Diabetic Foot Care & Surgery" },
     ] },
   ],
 
   /* Services shown in the footer (slugs from the list above) */
   footerServices: [
-    "laser-piles-treatment",
     "piles-haemorrhoid-surgery",
     "fissure-treatment",
     "fistula-treatment",
     "gallbladder-stone-surgery",
     "hernia-repair-surgery",
     "appendix-surgery",
-    "kidney-stone-treatment",
   ]
 };

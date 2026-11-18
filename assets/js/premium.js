@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* Patient reviews: centre-focus looping slider (arrows, dots, drag/swipe, keys) */
 (function () {
   var box = document.querySelector('[data-rv]'); if (!box) return;
@@ -27,8 +26,6 @@
   render(); height();
 })();
 
-=======
->>>>>>> a7c86007fe092ddce12095f9bf133bcc3f7cc680
 /* Homepage-only micro interactions (tilt, spotlight, hero parallax). Safe to delete. */
 (function () {
   var fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
