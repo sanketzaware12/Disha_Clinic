@@ -45,21 +45,28 @@
   function link(key, path, label) { return '<a href="' + u(path) + '"' + on(key) + '>' + label + '</a>'; }
 
   function header() {
-    var groups = (S.serviceGroups || []).map(function (g) {
-      return '<div class="dg"><h5>' + esc(g.title) + '</h5>' + g.items.map(function (it) {
-        return '<a href="' + u('services/' + it.slug + '/index.html') + '">' + esc(it.label) + '</a>';
-      }).join('') + '</div>';
-    }).join('');
+    var menu = (S.menuServices || []);
+    var ddCls = menu.length ? 'dd-m dd-one' : 'dd-m';
+    var groups = menu.length
+      ? '<div class="dg">' + menu.map(function (it) {
+          return '<a href="' + u('services/' + it.slug + '/index.html') + '">' + esc(it.label) + '</a>';
+        }).join('') + '</div>'
+      : (S.serviceGroups || []).map(function (g) {
+          return '<div class="dg"><h5>' + esc(g.title) + '</h5>' + g.items.map(function (it) {
+            return '<a href="' + u('services/' + it.slug + '/index.html') + '">' + esc(it.label) + '</a>';
+          }).join('') + '</div>';
+        }).join('');
+    var waHref = 'https://wa.me/' + esc(S.whatsapp) + '?text=' + encodeURIComponent(S.waText || '');
     var tel = 'tel:' + esc(S.phone);
     return '<div class="top"><div class="container"><div class="l"><span>' + I.clock + esc(S.hours) + '</span><span>' + I.phone + 'Call / WhatsApp: <a href="' + tel + '">' + esc(S.phoneDisplay) + '</a></span></div>' +
       '<div class="r"><a href="mailto:' + esc(S.email) + '">' + I.mail + esc(S.email) + '</a><div class="soc">' + social() + '</div></div></div></div>\n' +
       '<header class="hdr"><div class="container">' + logo() + '\n' +
       '<nav class="nav" id="mainnav" aria-label="Main">' +
-      link('home', 'index.html', 'Home') + link('about', 'about-us/index.html', 'About') +
-      '<div class="dd">' + link('services', 'services/index.html', 'Services \u25be') + '<div class="dd-m">' + groups + '</div></div>' +
-      link('products', 'products/index.html', 'Products') + link('blogs', 'blogs/index.html', 'Blogs') + link('contact', 'contact-us/index.html', 'Contact') +
-      '<div class="nav-cta"><a class="btn btn-a btn-sm" href="' + tel + '">' + I.phone + ' Call Now</a><a class="btn btn-p btn-sm" href="' + u('book-appointment/index.html') + '">' + I.cal + ' Book Now</a></div></nav>\n' +
-      '<div class="hcta"><a class="btn btn-a btn-sm" href="' + tel + '">' + I.phone + ' Call Now</a><a class="btn btn-p btn-sm pulse" href="' + u('book-appointment/index.html') + '">' + I.cal + ' Book Appointment</a>' +
+      link('home', 'index.html', 'Home') +
+      '<div class="dd">' + link('services', 'services/index.html', 'Services \u25be') + '<div class="' + ddCls + '">' + groups + '</div></div>' +
+      link('products', 'products/index.html', 'Products') + link('blogs', 'blogs/index.html', 'Blog') + link('about', 'about-us/index.html', 'About Us') + link('contact', 'contact-us/index.html', 'Contact Us') +
+      '<div class="nav-cta"><a class="btn btn-a btn-sm" href="' + tel + '">' + I.phone + ' Call Now</a><a class="btn btn-p btn-sm" href="' + waHref + '" target="_blank" rel="noopener">' + I.wa + ' WhatsApp Chat</a></div></nav>\n' +
+      '<div class="hcta"><a class="btn btn-a btn-sm" href="' + tel + '">' + I.phone + ' Call Now</a><a class="btn btn-p btn-sm pulse" href="' + waHref + '" target="_blank" rel="noopener">' + I.wa + ' WhatsApp Chat</a>' +
       '<button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mainnav"><span class="b-o">' + I.menu + '</span><span class="b-c">' + I.close + '</span></button></div></div></header>' +
       '<div class="nav-ov" aria-hidden="true"></div>\n';
   }

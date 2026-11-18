@@ -39,3 +39,12 @@ Replace files in `assets/img/` using the same file names (`hero-1`, `service-<na
 1. Do the Find & Replace above.
 2. Add Google Search Console verification and Analytics snippet in `<head>` (marked `[REPLACE]`), submit `sitemap.xml`.
 3. Connect booking / enquiry forms to a backend or form service: search `TODO` in `assets/js/main.js`.
+
+## Service internal pages (static HTML)
+
+All service pages use the same layout as `services/piles-haemorrhoid-surgery/index.html`
+(hero, stats, on-page nav, then the same sections in the same order). The design lives in
+`assets/css/service-detail.css`, the behaviour in `assets/js/service-detail.js`.
+To edit a service, open its `services/<slug>/index.html` and change only the text.
+Pages done in this template: piles, fissure, fistula, pilonidal sinus, hernia, gallbladder stone, appendix.
+The project contains only HTML, CSS and JavaScript (no Python).

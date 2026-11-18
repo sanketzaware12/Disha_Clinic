@@ -33,6 +33,17 @@ window.SITE = {
   slots: ["10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM"],  // appointment time slots
   closedDays: [],  // weekday numbers 0=Sun ... 6=Sat that are closed
 
+  /* Header "Services" dropdown (7 core services). Footer labels still come from serviceGroups below. */
+  menuServices: [
+    { slug: "piles-haemorrhoid-surgery", label: "Piles (Haemorrhoids)" },
+    { slug: "fissure-treatment", label: "Fissure in Ano" },
+    { slug: "fistula-treatment", label: "Fistula in Ano" },
+    { slug: "pilonidal-sinus-surgery", label: "Pilonidal Sinus" },
+    { slug: "hernia-repair-surgery", label: "Hernia" },
+    { slug: "appendix-surgery", label: "Appendix" },
+    { slug: "gallbladder-stone-surgery", label: "Gallbladder" },
+  ],
+
   /* Services menu (header dropdown). To add a service: copy a services/<folder>/, then add one line here. */
   serviceGroups: [
     { title: "Anorectal Surgeries", items: [

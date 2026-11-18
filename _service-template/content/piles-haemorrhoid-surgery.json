@@ -1,0 +1,741 @@
+{
+ "slug": "piles-haemorrhoid-surgery",
+ "name": "Piles (Haemorrhoid) Treatment",
+ "group": "Anorectal Surgeries",
+ "seo_title": "Piles Treatment in Kharadi, Pune: Surgical & Non-Surgical Options | Disha Clinic",
+ "seo_desc": "Piles treatment in Kharadi, Pune by Dr. Abhijeet Shinde. Diet, medicines, banding, laser and surgery matched to your grade. Private consultation, daycare where suitable.",
+ "hero_img": "assets/img/clinic/doctor-portrait.jpg",
+ "hero_alt": "Dr. Abhijeet Suresh Shinde at Disha Clinic, Kharadi, Pune",
+ "eyebrow": "Piles specialist in Kharadi, Pune",
+ "h1": "Piles Treatment in Kharadi, Pune: Surgical and Non-Surgical Options",
+ "short": "Piles (haemorrhoids) are swollen blood vessels in the lower rectum and anal canal. Many early piles improve with food, fluid and medicine changes. Advanced or persistent piles may need a procedure such as banding, laser or surgery. After a private examination, we explain the right option for your grade.",
+ "byline": "Led by Dr. Abhijeet Suresh Shinde, Consultant Surgeon. MS (General Surgery), Diploma in Laser Proctology.",
+ "stats": [
+  {
+   "n": 10,
+   "suf": "+",
+   "label": "years of surgical experience"
+  },
+  {
+   "n": 2500,
+   "suf": "+",
+   "label": "patients treated"
+  },
+  {
+   "text": "Both",
+   "label": "surgical and non-surgical options"
+  },
+  {
+   "text": "Daycare",
+   "label": "where clinically suitable"
+  }
+ ],
+ "nav": [
+  [
+   "overview",
+   "Overview"
+  ],
+  [
+   "symptoms",
+   "Symptoms"
+  ],
+  [
+   "diagnosis",
+   "Diagnosis"
+  ],
+  [
+   "treatment",
+   "Treatment"
+  ],
+  [
+   "surgery",
+   "Surgery"
+  ],
+  [
+   "recovery",
+   "Recovery"
+  ],
+  [
+   "cost",
+   "Cost"
+  ],
+  [
+   "faq",
+   "FAQs"
+  ]
+ ],
+ "blocks": [
+  {
+   "kind": "overview",
+   "id": "overview",
+   "tone": "white",
+   "eyebrow": "Overview",
+   "h2": "What Are Piles (Haemorrhoids)?",
+   "paras": [
+    "Piles are cushions of tissue and blood vessels in the lower rectum and anal canal. Everyone has them, and they help with bowel movements. They turn into a problem when they swell, slip down, cause bleeding, itching or a lump.",
+    "Piles are very common. Straining on the toilet, long sitting hours, low-fibre food and pregnancy all raise the chance. The good news: most piles can be controlled, and many need no operation."
+   ],
+   "mini": [
+    {
+     "t": "Internal piles",
+     "d": "Sit inside the anal canal. Usually painless, but can bleed bright red blood during or after stools."
+    },
+    {
+     "t": "External piles",
+     "d": "Sit under the skin around the anus. They can itch, feel sore and swell, and cause pain when a clot forms."
+    }
+   ],
+   "grades_title": "Piles grades at a glance",
+   "grades": [
+    {
+     "g": "Grade 1",
+     "d": "May bleed. No pile comes out of the anus."
+    },
+    {
+     "g": "Grade 2",
+     "d": "Comes out on straining and goes back by itself."
+    },
+    {
+     "g": "Grade 3",
+     "d": "Comes out and must be pushed back by hand."
+    },
+    {
+     "g": "Grade 4",
+     "d": "Stays outside and cannot be pushed back."
+    }
+   ]
+  },
+  {
+   "kind": "cards",
+   "id": "types",
+   "tone": "blush",
+   "eyebrow": "Types of piles",
+   "h2": "Internal, External, Thrombosed and Prolapsed Piles",
+   "intro": "Piles look and feel quite different from person to person. Knowing the type helps us choose the right treatment.",
+   "cols": 4,
+   "items": [
+    {
+     "i": "drop",
+     "t": "Internal piles",
+     "d": "Sit above the line where the anal canal meets the skin. Often painless; bright red bleeding is the common sign."
+    },
+    {
+     "i": "user",
+     "t": "External piles",
+     "d": "Sit under the skin around the anus. Can itch, ache and make cleaning difficult."
+    },
+    {
+     "i": "alert",
+     "t": "Thrombosed piles",
+     "d": "A blood clot forms inside a pile. Sudden, firm, painful lump that looks bluish."
+    },
+    {
+     "i": "arrow",
+     "t": "Prolapsed piles",
+     "d": "Piles that come down outside the anus, either on straining or all the time."
+    }
+   ]
+  },
+  {
+   "kind": "symptoms",
+   "id": "symptoms",
+   "tone": "white",
+   "eyebrow": "Symptoms",
+   "h2": "Symptoms of Piles: When to See a Piles Doctor",
+   "cols": [
+    {
+     "t": "Common symptoms",
+     "icon": "check",
+     "items": [
+      "Bright red blood on tissue, in the pan or on the stool",
+      "Itching or irritation around the anus",
+      "A lump or swelling near the anus",
+      "Feeling that the bowel has not emptied fully",
+      "Mucus discharge or soiling of underwear"
+     ]
+    },
+    {
+     "t": "See a specialist if",
+     "icon": "alert",
+     "items": [
+      "You see blood more than once or twice",
+      "Symptoms last more than a week or two",
+      "Pain is severe or a hard lump appears suddenly",
+      "Bowel habits change without a clear reason",
+      "You feel weak, dizzy or look pale"
+     ]
+    },
+    {
+     "t": "Piles or something else?",
+     "icon": "info",
+     "items": [
+      "Bleeding is also seen in fissure, fistula and bowel disease",
+      "Many people self-treat for months with creams",
+      "An early examination avoids missing other conditions",
+      "A simple check settles it in minutes"
+     ]
+    }
+   ],
+   "warn": "Do not assume all bleeding is piles. Persistent bleeding, a change in bowel habit, weight loss or a dark, tarry stool needs a proper examination, and sometimes a colonoscopy, to rule out other causes."
+  },
+  {
+   "kind": "table",
+   "id": "compare",
+   "tone": "soft",
+   "eyebrow": "Tell them apart",
+   "h2": "Piles, Fissure or Fistula? How the Symptoms Differ",
+   "intro": "These conditions overlap and can sit together. This table gives a rough idea; only an examination can confirm which one you have.",
+   "head": [
+    "Feature",
+    "Piles",
+    "Fissure",
+    "Fistula"
+   ],
+   "rows": [
+    [
+     "Main complaint",
+     "Bleeding, lump, itching",
+     "Sharp pain with stools",
+     "Recurrent pus discharge, boil near the anus"
+    ],
+    [
+     "Pain",
+     "Often mild, unless thrombosed",
+     "Marked, may last hours after stools",
+     "Throbbing when pus collects"
+    ],
+    [
+     "Bleeding",
+     "Bright red, painless",
+     "Small streak on tissue",
+     "Rare; discharge is more common"
+    ],
+    [
+     "Usual cause",
+     "Straining, low fibre, long sitting",
+     "Hard stool, tear in the lining",
+     "Past abscess or infection"
+    ]
+   ]
+  },
+  {
+   "kind": "causes",
+   "id": "causes",
+   "tone": "dark",
+   "eyebrow": "Causes & risk factors",
+   "h2": "What Causes Piles?",
+   "paras": [
+    "Piles develop when pressure in the lower rectum stays high for long periods. Several everyday habits add up together.",
+    "Many patients we see in Kharadi have long desk hours at IT parks, irregular meals and little water, which makes stools harder and straining more likely."
+   ],
+   "chips": [
+    "Constipation and straining",
+    "Low-fibre diet",
+    "Long sitting on the toilet",
+    "Chronic diarrhoea",
+    "Pregnancy and childbirth",
+    "Heavy lifting",
+    "Being overweight",
+    "Low water intake",
+    "Ageing",
+    "Family history"
+   ]
+  },
+  {
+   "kind": "steps",
+   "id": "diagnosis",
+   "tone": "white",
+   "eyebrow": "Diagnosis",
+   "h2": "How Are Piles Diagnosed?",
+   "intro": "Diagnosis is simple, quick and done in privacy. You are told what is being done at each step.",
+   "items": [
+    {
+     "t": "History",
+     "d": "Symptoms, bowel habits, diet, medicines and past illnesses."
+    },
+    {
+     "t": "Inspection",
+     "d": "A careful look at the area around the anus for swelling or skin changes."
+    },
+    {
+     "t": "Rectal examination",
+     "d": "A gentle digital examination to feel for lumps, tenderness or other problems."
+    },
+    {
+     "t": "Proctoscopy",
+     "d": "A short look inside the canal with a small tube to see and grade the piles."
+    }
+   ],
+   "note": "A colonoscopy is advised when bleeding is unexplained, you are above 45, or there is a family history of bowel disease."
+  },
+  {
+   "kind": "gradetable",
+   "id": "treatment",
+   "tone": "soft",
+   "eyebrow": "Choosing treatment",
+   "h2": "Which Piles Treatment Is Right for You?",
+   "intro": "The choice between non-surgical care and surgery depends mainly on the grade, your symptoms and your health. This table is a guide, not a prescription.",
+   "head": [
+    "Grade",
+    "Usual first approach",
+    "When a procedure may be considered"
+   ],
+   "rows": [
+    [
+     "Grade 1",
+     "Diet, fibre, water, medicines",
+     "Bleeding continues despite treatment"
+    ],
+    [
+     "Grade 2",
+     "Non-surgical care, banding or injection",
+     "Symptoms return or banding is not enough"
+    ],
+    [
+     "Grade 3",
+     "Procedure usually discussed",
+     "Laser, stapler or surgical removal, depending on the piles"
+    ],
+    [
+     "Grade 4",
+     "Surgical treatment is commonly needed",
+     "Haemorrhoidectomy, based on the findings"
+    ]
+   ]
+  },
+  {
+   "kind": "split",
+   "id": "nonsurgical",
+   "tone": "white",
+   "eyebrow": "Without an operation",
+   "h2": "Non-Surgical Piles Treatment in Kharadi, Pune",
+   "intro": "Many people never need an operation. Non-surgical piles treatment works best for grade 1 and 2 piles, and for flare-ups in more advanced piles. Dr. Shinde starts here whenever it is safe and sensible.",
+   "img": "assets/img/clinic/waiting-hall.jpg",
+   "img_alt": "Calm waiting hall at Disha Clinic, Kharadi",
+   "cap": "Our relaxed waiting area on the first floor",
+   "groups": [
+    {
+     "t": "Diet and lifestyle",
+     "items": [
+      "More fibre: vegetables, fruits, whole grains",
+      "Enough water through the day",
+      "No straining, long toilet time or phone on the toilet",
+      "Regular walking, less sitting"
+     ]
+    },
+    {
+     "t": "Medicines and home care",
+     "items": [
+      "Stool softeners, soothing creams and warm sitz baths as advised",
+      "Short courses only; long steroid cream use is avoided",
+      "Keep the area clean and dry"
+     ]
+    },
+    {
+     "t": "Sclerotherapy injection",
+     "items": [
+      "A solution is injected to shrink early internal piles",
+      "Quick, usually done in the clinic",
+      "Best for suitable grade 1 and 2 piles"
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "foods",
+   "id": "foods",
+   "tone": "blush",
+   "eyebrow": "Everyday habits",
+   "h2": "Foods and Habits That Help Piles Settle",
+   "intro": "Small daily changes make a big difference to non-surgical piles treatment, and they also lower the chance of piles returning after treatment or surgery.",
+   "more_t": "Eat more of",
+   "more": [
+    "Vegetables, salads and fruit with skin",
+    "Whole grains, oats, jowar, bajra",
+    "Dal, legumes, flaxseed",
+    "Water, buttermilk and clear fluids"
+   ],
+   "less_t": "Go easy on",
+   "less": [
+    "Refined foods, white bread, maida",
+    "Very spicy, oily or fried meals",
+    "Too much cheese, red meat",
+    "Holding the urge to pass stools"
+   ],
+   "note": "Increase fibre slowly, with extra water, to avoid gas and bloating."
+  },
+  {
+   "kind": "surgery",
+   "id": "surgery",
+   "tone": "white",
+   "eyebrow": "Surgical options",
+   "h2": "Surgical Piles Treatment in Kharadi, Pune: When Is Piles Surgery Needed?",
+   "intro": "Surgery is advised when piles are large, prolapsed, keep bleeding, or do not settle with other care. Today, most procedures are done as a day-care or short-stay operation.",
+   "img": "assets/img/clinic/doctor-consultation.jpg",
+   "img_alt": "Dr. Shinde consulting a patient at Disha Clinic, Pune",
+   "cap": "Procedure chosen after examination and discussion",
+   "head": [
+    "Option",
+    "Suited to",
+    "Things to know"
+   ],
+   "rows": [
+    [
+     "Rubber-band ligation",
+     "Selected internal piles, commonly grade 2 to 3",
+     "Quick; may need repeat sessions"
+    ],
+    [
+     "Haemorrhoidectomy (open)",
+     "Large, prolapsing or grade 3 to 4 piles with external component",
+     "Most definitive; usually more recovery discomfort"
+    ],
+    [
+     "Stapled haemorrhoidopexy",
+     "Selected grade 3 to 4 prolapsing piles",
+     "Less pain early; a few may return later"
+    ]
+   ]
+  },
+  {
+   "kind": "laser",
+   "id": "laser",
+   "tone": "dark",
+   "eyebrow": "Laser option",
+   "h2": "Laser Piles Treatment in Kharadi, Pune: What to Know",
+   "paras": [
+    "Laser treatment uses focused energy delivered through a thin fibre to shrink selected internal piles, leaving healthy tissue in place. Dr. Shinde holds a Diploma in Laser Proctology and offers laser where it suits the patient.",
+    "We explain what laser can and cannot do, and we never recommend it just because it is newer."
+   ],
+   "good_t": "Who may be a good candidate?",
+   "good": [
+    "Bleeding or prolapsing piles that are not helped by medicines",
+    "Suitable grade and a clear internal component",
+    "Wish for a shorter, more comfortable recovery",
+    "Fit for a day-care procedure"
+   ],
+   "note_t": "Honest note",
+   "note": [
+    "Laser is not for every pile, and not for every patient",
+    "Outcome still depends on diet and bowel habits",
+    "Some patients need a conventional operation instead",
+    "Results and recovery vary from person to person"
+   ]
+  },
+  {
+   "kind": "tiers",
+   "id": "prepare",
+   "tone": "white",
+   "eyebrow": "Before, during, after",
+   "h2": "Getting Ready for a Piles Procedure",
+   "tiers": [
+    {
+     "t": "Before the day",
+     "icon": "calendar",
+     "items": [
+      "Share your medicines, especially blood thinners and diabetes tablets",
+      "Bring previous reports and any scan or colonoscopy results",
+      "Follow fasting and bowel preparation advice"
+     ]
+    },
+    {
+     "t": "On the day",
+     "icon": "clock",
+     "items": [
+      "Come with an adult who can take you home",
+      "Wear loose, comfortable clothes",
+      "Report observations and ask any questions before the procedure"
+     ]
+    },
+    {
+     "t": "After you go home",
+     "icon": "home",
+     "items": [
+      "Take medicines as prescribed",
+      "Walk daily and avoid heavy lifting",
+      "Eat fibre-rich food and drink plenty of water",
+      "Keep follow-up visits"
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "journey",
+   "id": "journey",
+   "tone": "soft",
+   "eyebrow": "What to expect",
+   "h2": "Your Piles Treatment Journey",
+   "items": [
+    {
+     "t": "Consultation",
+     "d": "Private discussion and examination."
+    },
+    {
+     "t": "Diagnosis",
+     "d": "Proctoscopy and grading of the piles."
+    },
+    {
+     "t": "Options",
+     "d": "Non-surgical, laser or surgery explained."
+    },
+    {
+     "t": "Treatment",
+     "d": "Done as day-care where possible."
+    },
+    {
+     "t": "Follow-up",
+     "d": "Recovery checks and diet guidance."
+    }
+   ]
+  },
+  {
+   "kind": "recovery",
+   "id": "recovery",
+   "tone": "white",
+   "eyebrow": "Recovery",
+   "h2": "Recovery and Aftercare After Piles Treatment",
+   "paras": [
+    "Recovery depends on the procedure and the person. Minimally invasive options usually allow a quicker return to routine than a conventional haemorrhoidectomy. Your surgeon gives an estimate for your treatment, and you can reach our Kharadi clinic if anything worries you."
+   ],
+   "img": "assets/img/clinic/hall-wide.jpg",
+   "img_alt": "Waiting hall at Disha Clinic",
+   "help_t": "What helps recovery",
+   "help": [
+    "Take pain relief and stool softeners as advised",
+    "Keep stools soft with fibre and fluids",
+    "Sit in warm water (sitz bath) for comfort",
+    "Walk daily; avoid heavy lifting early",
+    "Attend all follow-up visits"
+   ],
+   "call_t": "Contact the clinic promptly",
+   "call": "Call us for heavy bleeding, fever, severe pain, passing urine problems, or if you cannot pass stools. Do not wait for your next appointment."
+  },
+  {
+   "kind": "cards",
+   "id": "prevention",
+   "tone": "blush",
+   "eyebrow": "Prevention",
+   "h2": "How to Prevent Piles from Coming Back",
+   "cols": 5,
+   "items": [
+    {
+     "i": "leaf",
+     "t": "Fibre and water",
+     "d": "A high-fibre diet with plenty of fluids keeps stools soft."
+    },
+    {
+     "i": "clock",
+     "t": "No delay, no strain",
+     "d": "Go when you feel the urge. Do not push hard."
+    },
+    {
+     "i": "timer",
+     "t": "Short toilet time",
+     "d": "Avoid sitting for long periods or using a phone on the toilet."
+    },
+    {
+     "i": "walk",
+     "t": "Stay active",
+     "d": "Walk often and break long hours of sitting."
+    },
+    {
+     "i": "heart",
+     "t": "Treat constipation early",
+     "d": "Fix hard stools before they become a habit."
+    }
+   ]
+  },
+  {
+   "kind": "cards",
+   "id": "ignored",
+   "tone": "white",
+   "eyebrow": "Do not wait too long",
+   "h2": "What Can Happen If Piles Are Ignored?",
+   "intro": "Most piles are not dangerous, but ignoring them lets treatment become harder and more invasive. These are the common risks of leaving piles alone for long.",
+   "cols": 4,
+   "items": [
+    {
+     "i": "drop",
+     "t": "Anaemia",
+     "d": "Slow, repeated bleeding over months can lower haemoglobin and cause weakness."
+    },
+    {
+     "i": "alert",
+     "t": "Painful clots",
+     "d": "A thrombosed pile is very painful and may need drainage or removal."
+    },
+    {
+     "i": "arrow",
+     "t": "Stuck prolapse",
+     "d": "Piles that stay outside can swell, become sore and hard to push back."
+    },
+    {
+     "i": "info",
+     "t": "Missed diagnosis",
+     "d": "Bleeding blamed on piles can hide fissure, fistula or bowel disease."
+    }
+   ]
+  },
+  {
+   "kind": "myths",
+   "id": "myths",
+   "tone": "soft",
+   "eyebrow": "Myths and facts",
+   "h2": "Common Myths About Piles",
+   "items": [
+    {
+     "m": "“Only older men get piles.”",
+     "f": "Piles affect men and women of all adult ages, and are very common in pregnancy and after childbirth."
+    },
+    {
+     "m": "“Creams cure piles.”",
+     "f": "Creams ease symptoms but do not remove the cause. Long steroid use can thin the skin."
+    },
+    {
+     "m": "“Piles surgery means a long hospital stay.”",
+     "f": "Most procedures are done as day-care, and many patients go home the same day."
+    },
+    {
+     "m": "“Piles always turn into cancer.”",
+     "f": "They do not. But bleeding should be examined so that other conditions are not missed."
+    }
+   ]
+  },
+  {
+   "kind": "cost",
+   "id": "cost",
+   "tone": "white",
+   "eyebrow": "Cost and planning",
+   "h2": "Cost of Piles Treatment in Kharadi, Pune",
+   "paras": [
+    "There is no single price for piles treatment in Kharadi. Your surgeon explains the likely cost after examination, once the grade and best treatment are clear. Cost is explained before you decide, not after."
+   ],
+   "items": [
+    "The grade and type of piles",
+    "Whether care is medical, a procedure or surgery",
+    "Type of anaesthesia and whether it is daycare or a stay",
+    "Tests, medicines and follow-up visits"
+   ],
+   "box_t": "Insurance and payment",
+   "box": "Surgical piles treatment often qualifies for health insurance, but cover varies by policy. Please carry your policy details and ask us about paperwork before the procedure."
+  },
+  {
+   "kind": "why",
+   "id": "why",
+   "tone": "dark",
+   "eyebrow": "Why Disha",
+   "h2": "Why Choose Our Piles Surgery Clinic in Kharadi, Pune?",
+   "intro": "Consult Dr. Abhijeet Suresh Shinde for piles treatment at DISHA Advanced Surgical & Laser Piles Clinic.",
+   "img": "assets/img/clinic/opd-entrance.jpg",
+   "img_alt": "OPD entrance of Disha Clinic, Kharadi",
+   "cap": "OPD No. 2, first floor, Ganga Altus",
+   "points": [
+    [
+     "Consultant proctologist",
+     "MS (General Surgery), Diploma in Laser Proctology, and specialised training in laser piles care."
+    ],
+    [
+     "10+ years, 2,500+ patients",
+     "A track record in clinical and surgical experience."
+    ],
+    [
+     "Honest advice",
+     "We say when surgery is not needed, and we explain every option."
+    ],
+    [
+     "Private and respectful",
+     "A calm clinic near Manipal Hospital, Thite Nagar, Kharadi."
+    ],
+    [
+     "Clear costs",
+     "Explained after examination and before you decide."
+    ]
+   ]
+  },
+  {
+   "kind": "reviews",
+   "id": "reviews",
+   "tone": "soft",
+   "eyebrow": "Patient reviews",
+   "h2": "Patient Reviews",
+   "intro": "What patients have written about their visit to our clinic in Kharadi, Pune, shown as posted on Google.",
+   "gmaps": "https://maps.app.goo.gl/dh9mbhsyUwVJ43zh7",
+   "reviews": []
+  },
+  {
+   "kind": "visit",
+   "id": "visit",
+   "tone": "white",
+   "eyebrow": "Visit us",
+   "h2": "Find Our Piles Clinic in Kharadi, Pune",
+   "img": "assets/img/clinic/lounge-seating.jpg",
+   "img_alt": "Lounge seating at Disha Clinic, Kharadi",
+   "cap": "A short drive from Manipal Hospital, Thite Nagar",
+   "directions": "https://www.google.com/maps/search/?api=1&query=Ganga+Altus+Cherry+Life+Thite+Nagar+Kharadi+Pune+411014"
+  },
+  {
+   "kind": "faq",
+   "id": "faq",
+   "tone": "soft",
+   "eyebrow": "FAQs",
+   "h2": "Piles Treatment in Kharadi, Pune: Frequently Asked Questions",
+   "items": [
+    [
+     "What is the best treatment for piles?",
+     "There is no single best treatment. It depends on the grade, your symptoms and your health. Early piles often improve with diet, water and medicines, while advanced piles may need banding, laser or surgery."
+    ],
+    [
+     "Can piles be treated without surgery?",
+     "Yes. Grade 1 and 2 piles are usually managed with fibre, fluids, medicines, sitz baths and sometimes banding or injection. Surgery is advised only when these are not enough."
+    ],
+    [
+     "When is piles surgery needed?",
+     "When piles are large, keep prolapsing, bleed repeatedly, form painful clots, or do not respond to other care. Grade 3 and 4 piles often need a procedure."
+    ],
+    [
+     "Is piles surgery painful or a daycare procedure?",
+     "Most procedures are done as day-care or a short stay. Some discomfort after surgery is expected, and we give pain relief and clear aftercare advice. Pain level depends on the procedure."
+    ],
+    [
+     "Is laser treatment better than traditional surgery for piles?",
+     "Laser can offer a more comfortable recovery for suitable internal piles, but it is not right for everyone. We recommend the method that fits your grade, not the newest one."
+    ],
+    [
+     "How long is recovery after piles surgery?",
+     "It varies. Minimally invasive options usually allow a quicker return to routine than open surgery. Your surgeon will give an estimate based on your procedure."
+    ],
+    [
+     "Can piles come back after treatment?",
+     "Yes, if the causes continue. Fibre, water, active habits and avoiding straining lower the chance considerably."
+    ],
+    [
+     "Is rectal bleeding always due to piles?",
+     "No. Bleeding can also come from fissure, fistula or bowel conditions, so it should be examined and not self-treated for long."
+    ],
+    [
+     "Can piles turn into cancer?",
+     "No, piles do not become cancer. However, bleeding can have other causes, which is why proper examination matters."
+    ],
+    [
+     "Are piles common in pregnancy?",
+     "Yes. Pressure and constipation during pregnancy make piles common. Most settle after delivery with simple measures. Please consult before using any medicine."
+    ],
+    [
+     "How do I book a piles doctor consultation in Kharadi?",
+     "Call or WhatsApp +91 97668 15782, or use the online booking form. The clinic is open daily from 10 AM to 9 PM."
+    ],
+    [
+     "How much does piles treatment cost in Kharadi?",
+     "Cost depends on the treatment chosen. Your surgeon explains the likely cost after examination."
+    ]
+   ]
+  },
+  {
+   "kind": "cta",
+   "id": "cta",
+   "h2": "Get Your Piles Examined by a Specialist",
+   "p": "A short, private consultation with Dr. Abhijeet Suresh Shinde in Kharadi, Pune."
+  }
+ ],
+ "medical_note": "This page is general information and does not replace a personal medical opinion. Treatment decisions are made after examination."
+}
