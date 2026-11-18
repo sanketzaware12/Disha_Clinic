@@ -92,8 +92,13 @@ body.home .ha-logo img{width:40px;height:auto}
 .surgeon .container{position:relative;z-index:1}
 .surgeon .doc-split{grid-template-columns:.85fr 1.15fr}
 .docpic{max-width:420px;margin:8px auto 0;padding-bottom:20px;transform:perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .3s ease-out}
+<<<<<<< HEAD
 .dpf{border-radius:90px 22px 90px 22px;border:0;aspect-ratio:4/5;box-shadow:0 30px 60px -12px rgba(8,56,30,.38),0 0 0 1px rgba(8,56,30,.06);position:relative;z-index:1}
 .docpic::before{border-radius:96px 26px 96px 26px;border-color:var(--g);z-index:0}
+=======
+.dpf{border-radius:150px 150px 28px 28px;border:6px solid #fff;aspect-ratio:10/11.2;box-shadow:0 26px 60px rgba(8,56,30,.28);position:relative;z-index:1}
+.docpic::before{border-radius:158px 158px 34px 34px;border-color:var(--g);z-index:0}
+>>>>>>> a7c86007fe092ddce12095f9bf133bcc3f7cc680
 .dp-ring{position:absolute;left:-34px;top:-10px;width:140px;height:140px;border-radius:50%;border:2px dashed var(--g);opacity:.8;animation:hmSpin 26s linear infinite;z-index:0}
 .docpic .doc-badge{z-index:4;right:-14px;bottom:2px;left:auto;background:linear-gradient(135deg,#08381E,#12803f);border:1px solid rgba(200,162,74,.6);border-radius:18px;padding:12px 18px;animation:hmBob 5s ease-in-out infinite,hmGlow 3s infinite}
 .surgeon h2{font-size:clamp(24px,3vw,34px);margin-bottom:6px}
@@ -248,10 +253,17 @@ body.home .reviews .rv-n{font-size:28px}
 body.home .reviews .stars{font-size:16px;background:linear-gradient(90deg,#F5B400,#ffd75e,#F5B400);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#F5B400;animation:hmGrad 4s linear infinite}
 body.home .reviews .g3{gap:16px}
 body.home .reviews .card.rv{position:relative;padding:20px 20px 16px;border:1px solid var(--line);border-radius:22px;background:#fff;box-shadow:0 8px 22px rgba(8,56,30,.07);transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s,border-color .4s}
+<<<<<<< HEAD
 body.home .reviews .rv::before{content:"\201C";position:absolute;left:18px;top:8px;font-family:var(--hf);font-size:110px;line-height:1;color:rgba(200,162,74,.28);transition:transform .5s,color .5s;pointer-events:none}
 body.home .reviews .rv::after{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:linear-gradient(90deg,#F5B400,var(--g),var(--a));transform:scaleX(.2);transform-origin:left;transition:transform .55s}
 body.home .reviews .rv:hover{transform:translateY(-9px);box-shadow:0 26px 48px rgba(8,56,30,.18);border-color:#e4d3a0}
 body.home .reviews .rv:hover::before{color:rgba(200,162,74,.55);transform:translateX(4px) scale(1.12)}
+=======
+body.home .reviews .rv::before{content:"\201C";position:absolute;right:16px;top:-8px;font-family:var(--hf);font-size:110px;line-height:1;color:rgba(200,162,74,.28);transition:transform .5s,color .5s;pointer-events:none}
+body.home .reviews .rv::after{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:linear-gradient(90deg,#F5B400,var(--g),var(--a));transform:scaleX(.2);transform-origin:left;transition:transform .55s}
+body.home .reviews .rv:hover{transform:translateY(-9px);box-shadow:0 26px 48px rgba(8,56,30,.18);border-color:#e4d3a0}
+body.home .reviews .rv:hover::before{color:rgba(200,162,74,.55);transform:translateY(8px) scale(1.12)}
+>>>>>>> a7c86007fe092ddce12095f9bf133bcc3f7cc680
 body.home .reviews .rv:hover::after{transform:scaleX(1)}
 body.home .reviews .rv-av{flex:none;width:46px;height:46px;font-size:12px;font-weight:700;letter-spacing:0;white-space:nowrap;line-height:1;background:linear-gradient(135deg,var(--p),var(--pd));box-shadow:0 0 0 3px #fff,0 0 0 5px var(--g);transition:box-shadow .4s,transform .4s}
 body.home .reviews .rv:hover .rv-av{transform:scale(1.08);box-shadow:0 0 0 3px #fff,0 0 0 6px var(--a)}
@@ -340,7 +352,11 @@ body.home .hero-art{width:310px;height:372px;margin-top:-190px}
 body.home .ha-ring{width:410px;height:410px;margin:-205px 0 0 -205px}body.home .ha-ring.r2{width:356px;height:356px;margin:-178px 0 0 -178px}
 body.home .about .split p,body.home .surgeon .split p,body.home .laser .split>div:first-child p{font-size:14.3px;line-height:1.55;margin-bottom:8px}
 .ab-visual{padding:0 28px 30px 0}
+<<<<<<< HEAD
 .docpic{max-width:350px;padding-bottom:14px}
+=======
+.docpic{max-width:350px;padding-bottom:14px}.dpf{aspect-ratio:10/10.4}
+>>>>>>> a7c86007fe092ddce12095f9bf133bcc3f7cc680
 .split .ticks{gap:7px;margin-top:10px}.split .ticks li{padding:8px 12px}
 .dfacts{margin:10px 0 0}.doc-cta{margin-top:10px}
 body.home .spec .g4>.card .im{aspect-ratio:16/6.8}
@@ -354,6 +370,7 @@ body.home .onggl .vlist li{padding:7px 10px}.mapcard .map{min-height:260px}
 body.home .faqx .acc-q{padding:12px 14px}body.home .faqx .fx-grid{gap:10px}body.home .faqx .acc-a p{padding-bottom:12px}
 .tj6 .tj-card{margin-top:18px;padding:20px 14px 16px}
 @media(max-width:720px){body .section,body.home .section{padding:22px 0}body .oneview,body.home .oneview{padding:20px 0}.ph{padding:18px 0 14px}.cta{padding:18px}.grid{gap:12px}body.home .hero-one,body.home .hero-one .slide{min-height:0}body.home .hero-one .hc{padding:28px 0 52px}}
+<<<<<<< HEAD
 
 
 /* ================= SPECIALITIES: help card ================= */
@@ -521,3 +538,5 @@ body.svc-page .svc-spec .g4>.card .im{aspect-ratio:16/9}
 body.svc-page .svc-spec .g4>.card:hover h3{color:var(--p)}
 body.svc-page .svc-spec .g4>.card .bd p{-webkit-line-clamp:4}
 @media(max-width:720px){.ph-svc{padding:30px 0 28px}.phs-orb.o1{display:none}.phs-chips li{font-size:12px;padding:6px 12px}}
+=======
+>>>>>>> a7c86007fe092ddce12095f9bf133bcc3f7cc680
