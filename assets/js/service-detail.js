@@ -63,3 +63,15 @@
     } else tl.forEach(function (t) { t.classList.add('go'); });
   }
 })();
+
+/* comparison cards: soft cursor spotlight (desktop only) */
+(function () {
+  if (!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+  Array.prototype.slice.call(document.querySelectorAll('.dx-card')).forEach(function (c) {
+    c.addEventListener('pointermove', function (e) {
+      var r = c.getBoundingClientRect();
+      c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+})();

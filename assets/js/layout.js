@@ -64,7 +64,7 @@
       '<nav class="nav" id="mainnav" aria-label="Main">' +
       link('home', 'index.html', 'Home') +
       '<div class="dd">' + link('services', 'services/index.html', 'Services \u25be') + '<div class="' + ddCls + '">' + groups + '</div></div>' +
-      link('products', 'products/index.html', 'Products') + link('blogs', 'blogs/index.html', 'Blog') + link('about', 'about-us/index.html', 'About Us') + link('contact', 'contact-us/index.html', 'Contact Us') +
+      /* PRODUCTS (hidden for now): link('products', 'products/index.html', 'Products') + */ link('blogs', 'blogs/index.html', 'Blog') + link('about', 'about-us/index.html', 'About Us') + link('contact', 'contact-us/index.html', 'Contact Us') +
       '<div class="nav-cta"><a class="btn btn-a btn-sm" href="' + tel + '">' + I.phone + ' Call Now</a><a class="btn btn-p btn-sm" href="' + waHref + '" target="_blank" rel="noopener">' + I.wa + ' WhatsApp Chat</a></div></nav>\n' +
       '<div class="hcta"><a class="btn btn-a btn-sm" href="' + tel + '">' + I.phone + ' Call Now</a><a class="btn btn-p btn-sm pulse" href="' + waHref + '" target="_blank" rel="noopener">' + I.wa + ' WhatsApp Chat</a>' +
       '<button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mainnav"><span class="b-o">' + I.menu + '</span><span class="b-c">' + I.close + '</span></button></div></div></header>' +
@@ -82,7 +82,8 @@
       '<div class="f-brand">' + logo('ew') + '<p>' + esc(S.about) + '</p><div class="soc" style="margin-top:14px">' + social() + '</div></div>\n' +
       '<div class="f-links"><h4>Quick Links</h4><ul>' +
       '<li><a href="' + u('about-us/index.html') + '">About Us</a></li><li><a href="' + u('services/index.html') + '">Services</a></li>' +
-      '<li><a href="' + u('products/index.html') + '">Products</a></li><li><a href="' + u('blogs/index.html') + '">Blogs</a></li>' +
+      /* PRODUCTS (hidden for now): '<li><a href="' + u('products/index.html') + '">Products</a></li>' + */
+      '<li><a href="' + u('blogs/index.html') + '">Blogs</a></li>' +
       '<li><a href="' + u('book-appointment/index.html') + '">Book Appointment</a></li><li><a href="' + u('contact-us/index.html') + '">Contact Us</a></li></ul></div>\n' +
       '<div class="f-svc"><h4>Our Services</h4><ul>' + fsvc + '</ul></div>\n' +
       '<div class="f-contact"><h4>Contact</h4><ul><li>' + I.pin + ' ' + esc(S.address) + '</li>' +

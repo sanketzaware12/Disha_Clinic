@@ -665,3 +665,126 @@ body.svc .rv-track{margin:4px 0 0}
  #journey .sd-journey.go::after{display:none}
  .js #journey .sd-journey::before{transform:none}
 }
+
+/* ===== "Tell them apart" - symptom comparison cards ===== */
+.dx{display:grid;gap:22px;align-items:stretch;max-width:1120px;margin:0 auto}
+.dx-3{grid-template-columns:repeat(3,1fr)}.dx-2{grid-template-columns:repeat(2,1fr)}.dx-4{grid-template-columns:repeat(4,1fr)}
+.dx-card{--mx:50%;--my:0%;position:relative;background:#fff;border:1px solid var(--line);border-radius:26px 8px 26px 8px;padding:26px 24px 20px;box-shadow:0 10px 28px rgba(8,56,30,.08);overflow:hidden;display:flex;flex-direction:column;transition:transform .45s cubic-bezier(.22,.9,.3,1),box-shadow .45s,border-color .45s}
+.dx-card::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--a),var(--g));transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.22,.9,.3,1)}
+.dx-card::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .35s;background:radial-gradient(260px circle at var(--mx) var(--my),rgba(15,107,56,.10),transparent 70%)}
+.dx-card:hover{transform:translateY(-10px);box-shadow:0 26px 50px rgba(8,56,30,.18);border-color:rgba(15,107,56,.35)}
+.dx-card:hover::before{transform:scaleX(1)}.dx-card:hover::after{opacity:1}
+.dx-top{display:flex;align-items:center;gap:14px;padding-bottom:18px;margin-bottom:6px;border-bottom:1px solid var(--line)}
+.dx-ico{flex:none;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font-family:var(--hf);font-size:24px;font-weight:700;color:var(--sdp);background:var(--soft);border:2px solid rgba(15,107,56,.18);transition:transform .5s cubic-bezier(.22,.9,.3,1),background .3s,color .3s}
+.dx-card:hover .dx-ico{transform:rotate(-8deg) scale(1.1);background:var(--sdp);color:#fff}
+.dx-tag{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--m);margin-bottom:2px}
+.dx-top h3{font-family:var(--hf);font-size:21px;line-height:1.2;color:var(--sdd);margin:0}
+.dx-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;flex:1}
+.dx-list li{position:relative;padding:13px 0 13px 18px;border-bottom:1px dashed #d7e6dc;transition:padding .3s,background .3s}
+.dx-list li:last-child{border-bottom:0}
+.dx-list li::before{content:"";position:absolute;left:0;top:21px;width:7px;height:7px;border-radius:50%;background:var(--a);transform:scale(.7);transition:transform .3s,box-shadow .3s}
+.dx-list li:hover{padding-left:24px}.dx-list li:hover::before{transform:scale(1.2);box-shadow:0 0 0 5px rgba(211,47,60,.14)}
+.dx-l{display:block;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--a);margin-bottom:3px}
+.dx-v{display:block;font-size:15px;line-height:1.5;color:var(--t)}
+/* the condition this page is about */
+.dx-card.is-main{background:linear-gradient(160deg,var(--sdp),var(--sdd));border-color:transparent;color:#fff;box-shadow:0 22px 46px rgba(8,56,30,.30);transform:translateY(-8px)}
+.dx-card.is-main::before{transform:scaleX(1);height:5px}
+.dx-card.is-main::after{background:radial-gradient(280px circle at var(--mx) var(--my),rgba(255,255,255,.14),transparent 70%)}
+.dx-card.is-main:hover{transform:translateY(-16px);box-shadow:0 34px 64px rgba(8,56,30,.38);border-color:transparent}
+.dx-card.is-main .dx-top{border-color:rgba(255,255,255,.2)}
+.dx-card.is-main .dx-ico{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.4);color:#fff}
+.dx-card.is-main:hover .dx-ico{background:var(--g);color:var(--sdd)}
+.dx-card.is-main .dx-tag{color:var(--g)}.dx-card.is-main .dx-top h3{color:#fff}
+.dx-card.is-main .dx-list li{border-color:rgba(255,255,255,.18)}
+.dx-card.is-main .dx-list li::before{background:var(--g)}.dx-card.is-main .dx-list li:hover::before{box-shadow:0 0 0 5px rgba(200,162,74,.25)}
+.dx-card.is-main .dx-l{color:#f3d58a}.dx-card.is-main .dx-v{color:#eaf5ee}
+/* note strip under the cards */
+.dx-note{max-width:1120px;margin:34px auto 0;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-left:5px solid var(--a);border-radius:16px;padding:16px 22px;box-shadow:var(--sh)}
+.dx-note p{margin:0;color:var(--t);font-size:15px}.dx-note b{color:var(--sdd)}
+@media(max-width:1020px){.dx-3,.dx-4{grid-template-columns:repeat(2,1fr)}.dx-card.is-main{grid-column:1/-1;transform:none}.dx-card.is-main:hover{transform:translateY(-8px)}}
+@media(max-width:680px){.dx,.dx-2,.dx-3,.dx-4{grid-template-columns:1fr;gap:16px}.dx-card{padding:22px 20px 16px}.dx-note{flex-direction:column;align-items:flex-start}.dx-note .btn{width:100%;justify-content:center}}
+
+/* ===== comparison cards: perfect alignment (same top, same height, rows line up across cards) ===== */
+.dx{align-items:stretch;column-gap:22px;row-gap:22px}
+.dx-card,.dx-card.is-main{transform:none}
+.dx-card:hover,.dx-card.is-main:hover{transform:translateY(-8px)}
+.dx-top{min-height:92px;box-sizing:border-box}
+.dx-list li{display:flex;flex-direction:column;justify-content:flex-start}
+@media(min-width:1021px){
+  @supports (grid-template-rows:subgrid){
+    .dx{row-gap:0}
+    .dx-card{grid-row:span 5;display:grid;grid-template-rows:subgrid;row-gap:0}
+    .dx-list{display:contents}
+    .dx-top{align-self:stretch}
+    .dx-list li{align-self:stretch}
+  }
+}
+@media(max-width:1020px){.dx-card.is-main{transform:none}.dx-card.is-main:hover{transform:translateY(-8px)}}
+
+/* ===== service hero: illustrated visual + decorations ===== */
+.sd-photo.sd-illus{background:linear-gradient(160deg,#fff 0%,#EAF5EE 100%);border-color:#fff}
+.sd-photo.sd-illus::after{display:none}
+.sd-illus .sd-svg{position:absolute;inset:0;width:100%;height:100%;display:block;transition:transform .9s cubic-bezier(.22,.9,.3,1)}
+.sd-hero-card:hover .sd-illus .sd-svg{transform:scale(1.035)}
+.sd-svg *{transform-box:fill-box}
+.sd-svg .orbit{transform-box:view-box;transform-origin:200px 235px;animation:sdorb 14s linear infinite}
+.sd-svg .orbit.r2{animation-duration:22s;animation-direction:reverse}
+.sd-svg .orb-ring{transform-box:view-box;transform-origin:200px 235px;animation:sdorb 60s linear infinite}
+.sd-svg .tw{transform-origin:center;animation:sdtw 3.2s ease-in-out infinite}.sd-svg .tw.t2{animation-delay:1s}.sd-svg .tw.t3{animation-delay:2s}
+.sd-svg .pulse{transform-origin:center;animation:sdpulse 2.2s ease-in-out infinite}.sd-svg .pulse.p2{animation-delay:.8s}
+.sd-svg .float{animation:sdbob 5s ease-in-out infinite}
+.sd-svg .flow{animation:sdflow 1.6s linear infinite}
+.sd-svg .gut{stroke-dasharray:none}
+.sd-svg .burst{animation:sdblink 1.6s ease-in-out infinite}
+.sd-svg .stones{animation:sdbob 4s ease-in-out infinite}
+.sd-svg .drip{animation:sddrip 2s ease-in infinite}
+.sd-svg .lbl{animation:sdlbl .7s cubic-bezier(.22,.9,.3,1) both}
+.sd-svg .lbl:nth-of-type(2){animation-delay:.15s}
+@keyframes sdorb{to{transform:rotate(360deg)}}
+@keyframes sdtw{0%,100%{opacity:.35;transform:scale(.8) rotate(0)}50%{opacity:1;transform:scale(1.15) rotate(45deg)}}
+@keyframes sdpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.14)}}
+@keyframes sdflow{to{stroke-dashoffset:-28}}
+@keyframes sdblink{0%,100%{opacity:.25}50%{opacity:1}}
+@keyframes sddrip{0%{transform:translateY(-4px);opacity:0}30%{opacity:1}100%{transform:translateY(14px);opacity:0}}
+@keyframes sdlbl{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
+/* decorations around the card */
+.sd-dc{position:absolute;pointer-events:none;z-index:-1}
+.sd-dc.c1{width:150px;height:150px;right:-58px;top:-44px;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(200,162,74,.55),rgba(200,162,74,0) 70%);animation:sdbob 7s ease-in-out infinite}
+.sd-dc.c2{width:120px;height:120px;left:-62px;bottom:-34px;border-radius:50%;border:2px solid rgba(255,255,255,.25);animation:sdspinr 18s linear infinite}
+.sd-dc.c2::after{content:"";position:absolute;left:50%;top:-6px;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:var(--a);box-shadow:0 0 0 5px rgba(211,47,60,.25)}
+.sd-dc.c3{width:96px;height:96px;right:-40px;bottom:46px;background-image:radial-gradient(rgba(255,255,255,.55) 2px,transparent 2.5px);background-size:16px 16px;opacity:.6;animation:sdbob 8s ease-in-out infinite reverse}
+.sd-dc.c4{left:-48px;top:46%;width:30px;height:30px;transform:rotate(0);animation:sdspinr 10s linear infinite}
+.sd-dc.c4::before,.sd-dc.c4::after{content:"";position:absolute;background:var(--g);border-radius:3px}
+.sd-dc.c4::before{left:12px;top:0;width:6px;height:30px}.sd-dc.c4::after{left:0;top:12px;width:30px;height:6px}
+.sd-dc.c5{right:-26px;top:38%;width:18px;height:18px;border-radius:50%;background:var(--a);box-shadow:0 0 0 8px rgba(211,47,60,.22);animation:sdpulse 2.4s ease-in-out infinite}
+@keyframes sdspinr{to{transform:rotate(360deg)}}
+.sd-hero-card .sd-float.f1{z-index:3}.sd-hero-card .sd-float.f2{z-index:3}
+@media(max-width:1020px){.sd-dc.c1{right:-24px}.sd-dc.c2{left:-26px}.sd-dc.c3,.sd-dc.c4,.sd-dc.c5{display:none}}
+.sd-hero-card{width:100%}
+.sd-hero-card{max-width:410px}
+.sd-hero-card .sd-float.f1{top:-16px;left:-34px}.sd-hero-card .sd-float.f2{bottom:-18px;right:-30px}
+@media(max-width:1020px){.sd-hero-card{max-width:340px}.sd-hero-card .sd-float.f1{left:-8px}.sd-hero-card .sd-float.f2{right:-8px}}
+@media(max-width:480px){.sd-hero-card{max-width:300px}}
+
+/* ===== v2: compact landscape hero visual + richer animation ===== */
+.sd-photo.sd-illus{aspect-ratio:540/460;border-width:5px;border-radius:6px 40px 6px 40px}
+.sd-hero-card{max-width:440px}
+.sd-svg .scan{animation:sdscan 5s ease-in-out infinite}
+.sd-svg .cells circle{animation:sdcell 5.5s linear infinite;opacity:0}
+.sd-svg .rip{transform-origin:center;animation:sdrip 2.4s ease-out infinite;opacity:0}
+.sd-svg .pt{animation:sdpt 7s ease-in infinite;opacity:0}
+.sd-svg .pt.a2{animation-delay:1.2s}.sd-svg .pt.a3{animation-delay:2.4s}.sd-svg .pt.a4{animation-delay:3.4s}.sd-svg .pt.a5{animation-delay:4.4s}.sd-svg .pt.a6{animation-delay:5.4s}
+.sd-svg .ecg{stroke-dasharray:24 76;animation:sdecg 3.4s linear infinite}
+.sd-svg .sway{transform-origin:50% 100%;animation:sdsway 2.8s ease-in-out infinite}
+.sd-svg .flowg{animation:sdflow 2.2s linear infinite}
+.sd-svg .spine ellipse{animation:sdspine 3s ease-in-out infinite}
+.sd-svg .spine ellipse:nth-child(2){animation-delay:.25s}.sd-svg .spine ellipse:nth-child(3){animation-delay:.5s}.sd-svg .spine ellipse:nth-child(4){animation-delay:.75s}.sd-svg .spine ellipse:nth-child(5){animation-delay:1s}
+@keyframes sdscan{0%{transform:translateY(0);opacity:0}12%{opacity:1}88%{opacity:1}100%{transform:translateY(460px);opacity:0}}
+@keyframes sdcell{0%{transform:translateY(0);opacity:0}10%{opacity:.95}85%{opacity:.95}100%{transform:translateY(330px);opacity:0}}
+@keyframes sdrip{0%{transform:scale(.6);opacity:.85}100%{transform:scale(4.2);opacity:0}}
+@keyframes sdpt{0%{transform:translateY(0);opacity:0}15%{opacity:.8}100%{transform:translateY(-190px);opacity:0}}
+@keyframes sdecg{from{stroke-dashoffset:24}to{stroke-dashoffset:-76}}
+@keyframes sdsway{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(6deg)}}
+@keyframes sdspine{0%,100%{fill:#fff}50%{fill:#d9f0e2}}
+@media(max-width:1020px){.sd-hero-card{max-width:400px}}
+@media(max-width:480px){.sd-hero-card{max-width:340px}}

@@ -660,3 +660,11 @@ body.menu-open .nav>*{opacity:1;transform:none;transition:opacity .4s,transform 
 .spec-help p{color:#dcefe2}.spec-help .bt{margin-top:4px}.spec-help h3{font-family:var(--hf)}
 .dfacts span+span{margin-top:6px}
 @media(max-width:1020px){.doc-split{grid-template-columns:1fr}}
+
+/* ===== Services dropdown: dot instead of red line ===== */
+.dg a::before{content:"";position:absolute;left:14px;top:50%;width:6px;height:6px;margin-top:-3px;border-radius:50%;background:var(--p);opacity:.35;transform:scale(1);transition:transform .3s cubic-bezier(.22,.9,.3,1),background .3s,opacity .3s,box-shadow .3s}
+.dg a{padding-left:30px;transition:padding .3s cubic-bezier(.22,.9,.3,1),background .25s,color .25s,transform .3s}
+.dg a:hover{padding-left:35px;background:linear-gradient(90deg,var(--pl),#fff)}
+.dg a:hover::before{width:6px;background:var(--a);opacity:1;transform:scale(1.5);box-shadow:0 0 0 4px rgba(211,47,60,.15)}
+.dd-one .dg a{padding-left:32px}.dd-one .dg a:hover{padding-left:37px}
+.dd-one .dg a::before{left:15px}
