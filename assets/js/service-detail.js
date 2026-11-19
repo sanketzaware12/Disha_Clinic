@@ -1,4 +1,4 @@
-/* Service detail page behaviour: sticky-nav scrollspy, hero tilt, myth cards on touch. FAQ + counters + reveal come from main.js */
+/* Service detail page behaviour: sticky-nav scrollspy, hero tilt, myth cards (Know more button). FAQ + counters + reveal come from main.js */
 (function () {
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
@@ -25,8 +25,12 @@
     spy();
   }
 
-  // myth cards: tap to flip on touch screens
-  $$('.sd-myth').forEach(function (m) { m.setAttribute('tabindex', '0'); m.addEventListener('click', function () { m.classList.toggle('flip'); }); });
+  // myth cards: flip only when the "Know more" / "Back" button is clicked
+  $$('.sd-myth').forEach(function (m) {
+    m.querySelectorAll('.myth-btn').forEach(function (b) {
+      b.addEventListener('click', function (e) { e.stopPropagation(); m.classList.toggle('flip'); });
+    });
+  });
 
   // gentle 3D tilt on the doctor card (desktop only)
   var fine = matchMedia('(hover:hover) and (pointer:fine)').matches, calm = matchMedia('(prefers-reduced-motion:reduce)').matches;
