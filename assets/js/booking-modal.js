@@ -84,9 +84,46 @@ body.bm-lock{overflow:hidden}
 }
 @media(max-width:560px){.bm-form{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.bm,.bm-card{transition:none}.bm-ok.on{animation:none}}
+.bm-cap{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:14px;background:linear-gradient(135deg,#f3f9f5,#fff);border:1.5px dashed #bfdcc9}
+.bm-cap canvas{flex:none;display:block;width:150px;height:44px;border-radius:10px;border:1px solid #cfe5d6;background:#fff;user-select:none;-webkit-user-select:none}
+.bm-cr{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid #dfe8e1;background:#fff;color:#0F6B38;display:grid;place-items:center;cursor:pointer;transition:transform .5s cubic-bezier(.2,1.3,.4,1),background .25s,color .25s}
+.bm-cr svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.bm-cr:hover{background:#0F6B38;color:#fff;transform:rotate(180deg)}
+.bm-cap input{flex:1;min-width:0;text-transform:uppercase;letter-spacing:2px;font-weight:700}
+.bm-cap input::placeholder{text-transform:none;letter-spacing:0;font-weight:400}
+.bm-hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden;opacity:0}
+@media(max-width:420px){.bm-cap{flex-wrap:wrap}.bm-cap input{flex:1 1 100%}}
+
+.bm-f label[for=bmCap]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media(min-width:901px){.bm-main{overflow:hidden}}
+/* ---- compact popup (smaller width + height) ---- */
+@media(min-width:901px){
+.bm-shell{width:min(840px,100%)}
+.bm-card{grid-template-columns:.72fr 1.5fr;border-radius:22px}
+.bm-side{padding:20px 20px 18px}
+.bm-logo{gap:9px}.bm-logo img{width:42px;height:42px}.bm-lt b{font-size:21px}.bm-lt small{font-size:7px;letter-spacing:.05em}
+.bm-side h2{font-size:24px;margin:14px 0 8px}.bm-side h2::after{margin-top:9px;width:48px}
+.bm-side>p{font-size:13px;margin-bottom:12px;line-height:1.5}
+.bm-pts{gap:7px}.bm-pt{padding:8px 11px;gap:10px;border-radius:13px}.bm-pt i{width:32px;height:32px;border-radius:10px}.bm-pt svg{width:16px;height:16px}
+.bm-pt b{font-size:13px}.bm-pt span{font-size:11.5px;line-height:1.35}
+.bm-main{padding:20px 24px 18px}
+.bm-form{gap:8px 12px}
+.bm-f{gap:3px}
+.bm-f label,.bm-lb{font-size:12.5px}
+.bm-f input,.bm-f select{padding:6px 11px;font-size:13.5px;border-radius:10px}
+.bm-f select{padding-right:34px;background-position:right 12px center}
+.bm-f textarea{min-height:36px;height:36px;padding:6px 11px;font-size:13.5px;border-radius:10px}
+.bm-chk{font-size:12.5px;line-height:1.4}.bm-chk input{width:16px;height:16px}
+.bm-cap{padding:5px 8px;border-radius:12px;gap:6px}.bm-cap canvas{width:124px;height:36px}.bm-cr{width:30px;height:30px}
+.bm-go{padding:10px 18px;font-size:14.5px}
+.bm-e{font-size:11.5px}
+.bm-x{top:-12px;right:-12px;width:36px;height:36px}
+}
+@media(min-width:901px) and (max-height:640px){.bm-side>p{display:none}.bm-pt span{display:none}}
 `;
 
   const ic = {
+    refresh: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 10-2.3 5.7"/><path d="M20 4v7h-7"/></svg>',
     close: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>',
     lock: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>',
     clock: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
@@ -129,6 +166,8 @@ body.bm-lock{overflow:hidden}
               '<div class="bm-f"><label for="bmSlot">Preferred time</label><select id="bmSlot" name="slot"></select><small class="bm-e"></small></div>' +
               '<div class="bm-f full"><label for="bmMsg">Brief message <em>(optional)</em></label><textarea id="bmMsg" name="message" placeholder="Briefly describe your problem"></textarea></div>' +
               '<div class="bm-f full"><label class="bm-chk"><input type="checkbox" name="consent"><span>I have read the <a href="' + BASE + 'privacy-policy/index.html" target="_blank" rel="noopener">Privacy Policy</a> and agree to be contacted.</span></label><small class="bm-e"></small></div>' +
+              '<div class="bm-f full"><label for="bmCap">Security check</label><div class="bm-cap"><canvas id="bmCapCv" width="150" height="44" role="img" aria-label="Captcha code"></canvas><button class="bm-cr" type="button" aria-label="Get a new code" title="New code">' + ic.refresh + '</button><input id="bmCap" name="captcha" type="text" placeholder="Type the code" maxlength="5" autocomplete="off" autocapitalize="characters" spellcheck="false"></div><small class="bm-e"></small></div>' +
+              '<div class="bm-hp" aria-hidden="true"><label>Leave this empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>' +
               '<div class="bm-f full"><button class="bm-go" type="submit">' + ic.cal + ' <span>Request consultation</span></button></div>' +
             '</div>' +
           '</form>' +
@@ -150,6 +189,23 @@ body.bm-lock{overflow:hidden}
     const f = el.closest('.bm-f'); if (!f) return;
     f.classList.toggle('bad', !!msg); $('.bm-e', f).textContent = msg || '';
   };
+
+  /* ---- captcha: canvas code, case-insensitive check, new code on wrong answer / each open ---- */
+  let capCode = '';
+  function capDraw() {
+    const cv = $('#bmCapCv'); if (!cv) return;
+    const W = 150, H = 44, r = window.devicePixelRatio || 1, x = cv.getContext('2d'), CH = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789', rnd = n => Math.floor(Math.random() * n);
+    cv.width = W * r; cv.height = H * r; x.setTransform(r, 0, 0, r, 0, 0);
+    capCode = ''; for (let i = 0; i < 5; i++) capCode += CH.charAt(rnd(CH.length));
+    const g = x.createLinearGradient(0, 0, W, H); g.addColorStop(0, '#eef7f1'); g.addColorStop(1, '#fbf5e4'); x.fillStyle = g; x.fillRect(0, 0, W, H);
+    for (let i = 0; i < 6; i++) { x.strokeStyle = 'rgba(' + (i % 2 ? '200,162,74' : '15,107,56') + ',.45)'; x.lineWidth = 1 + Math.random(); x.beginPath(); x.moveTo(rnd(W), rnd(H)); x.bezierCurveTo(rnd(W), rnd(H), rnd(W), rnd(H), rnd(W), rnd(H)); x.stroke(); }
+    for (let i = 0; i < 40; i++) { x.fillStyle = 'rgba(8,56,30,' + (Math.random() * .35) + ')'; x.fillRect(rnd(W), rnd(H), 2, 2); }
+    for (let i = 0; i < capCode.length; i++) {
+      x.save(); x.translate(16 + i * 28, 28 + rnd(6) - 3); x.rotate((Math.random() - .5) * .6);
+      x.font = '700 ' + (24 + rnd(5)) + 'px Georgia, serif'; x.textAlign = 'center'; x.fillStyle = i % 2 ? '#0a4a2a' : '#7a5c12'; x.fillText(capCode.charAt(i), 0, 0); x.restore();
+    }
+  }
+  function capReset() { capDraw(); if (form) { form.elements.captcha.value = ''; setErr(form.elements.captcha, ''); } }
 
   function wire() {
     const pad = n => String(n).padStart(2, '0'), now = new Date();
@@ -177,6 +233,8 @@ body.bm-lock{overflow:hidden}
         sel.appendChild(o);
       });
     };
+    $('.bm-cr').onclick = () => { capReset(); form.elements.captcha.focus(); };
+    capDraw();
     di.addEventListener('change', () => { render(); setErr(di, ''); setErr(sel, ''); });
     render();
 
@@ -185,6 +243,7 @@ body.bm-lock{overflow:hidden}
     form.addEventListener('submit', e => {
       e.preventDefault();
       const v = n => form.elements[n].value.trim();
+      if (form.elements.website.value) return; // honeypot: bots fill hidden fields
       let bad = null; const fail = (el, m) => { setErr(el, m); bad = bad || el; };
       if (v('name').length < 2) fail(form.elements.name, 'Please enter your full name.');
       if (!/^\+?[0-9\s-]{10,15}$/.test(v('phone'))) fail(form.elements.phone, 'Enter a valid mobile number.');
@@ -194,6 +253,9 @@ body.bm-lock{overflow:hidden}
       if (!v('date')) { /* handled above */ } else if (sel.disabled) fail(form.elements.date, 'OPD is closed on this day. Please choose another date.');
       else if (!v('slot')) fail(sel, 'Please choose a time slot.');
       if (!form.elements.consent.checked) fail(form.elements.consent, 'Please accept to continue.');
+      { const c = v('captcha').toUpperCase();
+        if (!c) fail(form.elements.captcha, 'Please type the code shown.');
+        else if (c !== capCode) { fail(form.elements.captcha, 'Wrong code. Please try the new one.'); capDraw(); form.elements.captcha.value = ''; } }
       if (bad) { bad.focus && bad.focus({ preventScroll: true }); bad.closest('.bm-f').scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
 
       const btn = $('.bm-go', form), lab = $('span', btn); btn.disabled = true; lab.textContent = 'Sending…';
@@ -222,11 +284,23 @@ body.bm-lock{overflow:hidden}
     });
   }
 
+  /* keep the popup fully visible without scrolling: if the screen is too short, scale the whole card down */
+  function fit() {
+    const sh = $('.bm-shell'); if (!sh) return;
+    sh.style.zoom = ''; $('.bm-card').style.maxHeight = '';
+    if (window.innerWidth <= 900) return;
+    const card = $('.bm-card'), main = $('.bm-main');
+    card.style.maxHeight = 'none';
+    const need = Math.max(main.scrollHeight, card.getBoundingClientRect().height), avail = window.innerHeight - 30;
+    if (need > avail) sh.style.zoom = Math.max(.6, avail / need).toFixed(3); else card.style.maxHeight = '';
+  }
+  window.addEventListener('resize', () => { if (root && root.classList.contains('on')) fit(); });
+
   function open(service) {
     if (!built) build();
     lastFocus = document.activeElement;
     // fresh form each time (unless the thank-you screen was showing)
-    form.reset(); form.style.display = ''; $('.bm-ok').classList.remove('on');
+    form.reset(); form.style.display = ''; capReset(); $('.bm-ok').classList.remove('on');
     $$('.bm-f.bad', form).forEach(f => { f.classList.remove('bad'); $('.bm-e', f).textContent = ''; });
     const btn = $('.bm-go', form); btn.disabled = false; $('span', btn).textContent = 'Request consultation';
     $('#bmDate').dispatchEvent(new Event('change'));
@@ -234,7 +308,7 @@ body.bm-lock{overflow:hidden}
     // close the mobile menu if it is open
     document.body.classList.remove('menu-open');
     document.body.classList.add('bm-lock');
-    requestAnimationFrame(() => { root.classList.add('on'); setTimeout(() => $('#bmName').focus({ preventScroll: true }), 380); });
+    requestAnimationFrame(() => { fit(); root.classList.add('on'); setTimeout(() => $('#bmName').focus({ preventScroll: true }), 380); });
   }
   function close() {
     root.classList.remove('on'); document.body.classList.remove('bm-lock');
