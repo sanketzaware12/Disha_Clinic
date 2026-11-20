@@ -825,3 +825,10 @@ body.svc .rv-track{margin:4px 0 0}
 .sd-myth .myth-btn.back:hover{background:none;color:#fff;box-shadow:none}
 .sd-myth .myth-btn.back:hover .ico{transform:translateX(-5px)}
 @media(prefers-reduced-motion:reduce){.sd-myth .fr span::before,.sd-myth .bk::before{animation:none}}
+
+/* FINAL CTA: same premium band as the rest of the site (shared rules live in premium.css) */
+.sd-final{background:#f3f9f5;padding:4px 0 28px;text-align:left}
+.sd-final .sd-orb{display:none}
+.sd-final .container{width:min(1200px,calc(100% - 32px));max-width:none;margin:0 auto;padding:20px 28px;flex-direction:row}
+@media(max-width:1020px){.sd-final .container{flex-direction:column;align-items:flex-start;text-align:left}.sd-final .sd-btns{justify-content:flex-start}}
+@media(max-width:720px){.sd-final{padding:4px 0 22px}.sd-final .container{padding:18px 16px;border-radius:26px 10px 26px 10px}.sd-final .sd-btns{width:100%}.sd-final .sd-btns .btn{flex:1 1 100%;justify-content:center;white-space:nowrap}}

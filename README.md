@@ -56,3 +56,7 @@ doctor/booking card, related posts with thumbnails, share + author box and a clo
 The design lives in `assets/css/blog-detail.css`, the behaviour (scroll reveal, TOC highlight, hover spotlight) in `assets/js/blog-detail.js`.
 To add a new blog, copy an existing `blogs/<slug>/index.html` and change only the text. Wrap each topic as
 `<section class="bd-s bd-rv" id="..."><h2>...</h2>...</section>`; add class `bd-alert` for a red emergency callout.
+
+## Contact page
+Design: `assets/css/contact.css`, behaviour (scroll reveal, live "Open now" in IST, today highlight, copy buttons): `assets/js/contact.js`.
+The enquiry form keeps ids `enqForm` / `enqOk`, so validation and the success message still come from `main.js` (connect your backend at its TODO).
