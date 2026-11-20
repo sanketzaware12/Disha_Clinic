@@ -48,3 +48,11 @@ All service pages use the same layout as `services/piles-haemorrhoid-surgery/ind
 To edit a service, open its `services/<slug>/index.html` and change only the text.
 Pages done in this template: piles, fissure, fistula, pilonidal sinus, hernia, gallbladder stone, appendix.
 The project contains only HTML, CSS and JavaScript (no Python).
+
+## Blog internal pages (static HTML)
+
+All 6 blog articles share one premium template: hero, numbered content sections, sticky table of contents with scroll-spy,
+doctor/booking card, related posts with thumbnails, share + author box and a closing CTA band.
+The design lives in `assets/css/blog-detail.css`, the behaviour (scroll reveal, TOC highlight, hover spotlight) in `assets/js/blog-detail.js`.
+To add a new blog, copy an existing `blogs/<slug>/index.html` and change only the text. Wrap each topic as
+`<section class="bd-s bd-rv" id="..."><h2>...</h2>...</section>`; add class `bd-alert` for a red emergency callout.
