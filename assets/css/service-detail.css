@@ -832,3 +832,14 @@ body.svc .rv-track{margin:4px 0 0}
 .sd-final .container{width:min(1200px,calc(100% - 32px));max-width:none;margin:0 auto;padding:20px 28px;flex-direction:row}
 @media(max-width:1020px){.sd-final .container{flex-direction:column;align-items:flex-start;text-align:left}.sd-final .sd-btns{justify-content:flex-start}}
 @media(max-width:720px){.sd-final{padding:4px 0 22px}.sd-final .container{padding:18px 16px;border-radius:26px 10px 26px 10px}.sd-final .sd-btns{width:100%}.sd-final .sd-btns .btn{flex:1 1 100%;justify-content:center;white-space:nowrap}}
+
+/* ---------- RESPONSIVE FIXES: later desktop rules were beating the mobile collapse ---------- */
+@media(max-width:900px){
+ .sd-hero-grid,.sd-two,.sd-split,.sd-split.whysp,.sd-surg{grid-template-columns:minmax(0,1fr);gap:24px}
+ .sd-split>.sd-fig,.sd-surg>.sd-fig{height:auto;min-height:0;aspect-ratio:16/11;max-height:360px}
+ .sd-split>.sd-fig img,.sd-surg>.sd-fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+ .sd-split>div,.sd-surg>div{min-width:0}
+}
+@media(max-width:480px){
+ .sd-split>.sd-fig,.sd-surg>.sd-fig{aspect-ratio:4/3}
+}

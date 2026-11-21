@@ -36,6 +36,18 @@
       return '<a href="' + esc(s.url) + '" aria-label="' + esc(s.label) + '" target="_blank" rel="noopener">' + esc(s.letter) + '</a>';
     }).join('');
   }
+  var SOC = {
+    instagram: ICO('<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".8"/>'),
+    facebook: ICO('<path d="M14 8h3V4h-3a4 4 0 00-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/>'),
+    linkedin: ICO('<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-7M12 13a3 3 0 016 0v4"/>'),
+    youtube: ICO('<rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.5v5l4.5-2.5z"/>')
+  };
+  function socialIcons() {
+    return (S.social || []).map(function (s) {
+      var k = String(s.label || '').toLowerCase();
+      return '<a href="' + esc(s.url) + '" aria-label="' + esc(s.label) + '" target="_blank" rel="noopener">' + (SOC[k] || esc(s.letter)) + '</a>';
+    }).join('');
+  }
   function logo(extraImgClass) {
     return '<a class="logo" href="' + u('index.html') + '"' + (extraImgClass ? '' : ' aria-label="' + esc(S.name) + ' home"') + '>' +
       '<img ' + (extraImgClass ? 'class="' + extraImgClass + '" ' : '') + 'src="' + u('assets/img/emblem.png') + '" alt="' + esc(S.name) + ' logo" width="52" height="48">' +
@@ -79,7 +91,7 @@
     }).join('');
     var tel = 'tel:' + esc(S.phone);
     return '<footer class="ft"><div class="container"><div class="grid">\n' +
-      '<div class="f-brand">' + logo('ew') + '<p>' + esc(S.about) + '</p><div class="soc" style="margin-top:14px">' + social() + '</div></div>\n' +
+      '<div class="f-brand">' + logo('ew') + '<p>' + esc(S.about) + '</p><div class="soc">' + socialIcons() + '</div></div>\n' +
       '<div class="f-links"><h4>Quick Links</h4><ul>' +
       '<li><a href="' + u('about-us/index.html') + '">About Us</a></li><li><a href="' + u('services/index.html') + '">Services</a></li>' +
       /* PRODUCTS (hidden for now): '<li><a href="' + u('products/index.html') + '">Products</a></li>' + */

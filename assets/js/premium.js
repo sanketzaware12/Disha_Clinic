@@ -72,3 +72,8 @@
     });
   }
 })();
+
+/* Credentials: soft 3D tilt that follows the pointer (desktop only) */
+(function(){var c=document.querySelector('.cred');if(!c||!window.matchMedia('(hover:hover) and (min-width:1021px)').matches||window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;var f=c.querySelector('.credf');
+c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;f.style.transform='rotateY('+(x*7)+'deg) rotateX('+(-y*6)+'deg) translateY(-6px)'});
+c.addEventListener('mouseleave',function(){f.style.transform=''});})();

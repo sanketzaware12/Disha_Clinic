@@ -852,3 +852,109 @@ body.home .ha-beat{flex:0 0 40px;width:40px}
  .cta .bt{width:100%}.cta .bt .btn{flex:1 1 100%;justify-content:center}
 }
 @media(prefers-reduced-motion:reduce){.cta .btn-a,.sd-final .btn-a{animation:none}}
+
+/* =====================================================================
+   FOOTER (desktop): even gutters, aligned column tops, equal rhythm
+   ===================================================================== */
+.ft{padding:56px 0 0}
+.ft .grid{grid-template-columns:minmax(0,1.25fr) auto auto minmax(0,1.3fr);gap:0 clamp(40px,5vw,76px);align-items:start;justify-content:space-between}
+.ft .grid>div{min-width:0}
+.ft .f-brand p{margin:14px 0 18px;max-width:340px;line-height:1.7}
+.ft .f-brand .logo{display:inline-flex;align-items:center;gap:12px}
+.ft .f-brand .logo img{margin:0}
+.ft .f-links,.ft .f-svc,.ft .f-contact{padding-top:8px}
+.ft h4{font-size:16px;letter-spacing:.01em;margin-bottom:18px;padding-bottom:12px}
+.ft h4::after{width:38px}
+.ft .f-links li,.ft .f-svc li{margin:0;padding:6px 0}
+.ft .f-contact li{margin:0;padding:6px 0;align-items:flex-start;line-height:1.55}
+.ft .f-contact li .ico{flex:0 0 18px;width:18px;height:18px;margin-top:3px}
+.ft .f-contact li:not(:has(.ico)){padding-left:28px}
+.ft .soc{display:flex;gap:10px;margin:0}
+.ft .soc a{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#e9f4ec;font-size:0;transition:transform .3s,background .3s,border-color .3s,color .3s}
+.ft .soc a .ico{width:18px;height:18px;margin:0;color:inherit;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ft .soc a:hover{transform:translateY(-3px);background:var(--g);border-color:var(--g);color:#08381E;padding:0}
+.ft .bot{margin-top:40px;padding:18px 0;align-items:center}
+@media(max-width:1020px){
+ .ft .grid{grid-template-columns:1fr 1fr;gap:30px 28px}
+ .ft .f-brand,.ft .f-contact{grid-column:1/-1}
+ .ft .f-links,.ft .f-svc{padding-top:0}
+}
+@media(max-width:720px){.ft{padding-top:38px}.ft .grid{gap:26px 18px}.ft .f-links li,.ft .f-svc li{padding:4px 0}}
+
+
+/* =====================================================================
+   ABOUT US: Credentials (original layout, shorter image, more polish)
+   ===================================================================== */
+.section.alt.oneview:has(.credsplit){position:relative;overflow:hidden;padding:clamp(26px,4.5vh,46px) 0}
+.section.alt.oneview:has(.credsplit)::before,.section.alt.oneview:has(.credsplit)::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+.section.alt.oneview:has(.credsplit)::before{width:360px;height:360px;right:-100px;top:-130px;background:radial-gradient(circle,rgba(200,162,74,.24),transparent 70%)}
+.section.alt.oneview:has(.credsplit)::after{width:320px;height:320px;left:-110px;bottom:-140px;background:radial-gradient(circle,rgba(15,107,56,.15),transparent 70%)}
+.credsplit{position:relative;z-index:1;align-items:center}
+.credsplit>div:first-child h2{position:relative;padding-bottom:16px;margin-bottom:16px}
+.credsplit>div:first-child h2::after{content:"";position:absolute;left:0;bottom:0;width:64px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--g),var(--p))}
+.credsplit>div:first-child>p:nth-of-type(2){padding-left:14px;border-left:3px solid var(--g)}
+.credsplit .btn{margin-top:6px}
+/* image: height reduced (5:4 instead of 1:1) so the section fits one view */
+.cred{max-width:520px;padding-bottom:42px}
+.cred::before{content:"";position:absolute;right:-18px;top:-16px;width:120px;height:120px;z-index:0;background-image:radial-gradient(var(--g) 1.6px,transparent 1.8px);background-size:15px 15px;opacity:.55;border-radius:14px}
+.cred::after{content:"";position:absolute;left:-14px;bottom:10px;width:46%;height:60%;z-index:0;border-radius:24px;background:linear-gradient(135deg,rgba(15,107,56,.18),rgba(200,162,74,.18))}
+.credf{position:relative;z-index:1;aspect-ratio:1.04/1;max-height:min(58vh,516px);width:100%}
+.credf img{object-position:50% 54%}
+.credtag{z-index:2;bottom:0}
+@media(max-width:1020px){.cred{max-width:560px}.credf{max-height:none}}
+@media(max-width:560px){.cred::before{width:80px;height:80px}.credtag{white-space:normal;width:86%}}
+
+
+/* Credentials: motion + hover effects */
+@keyframes crUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes crBar{from{width:0}to{width:64px}}
+@keyframes crFloat{0%,100%{translate:0 0}50%{translate:0 -7px}}
+@keyframes crDrift{0%,100%{transform:translate(0,0)}50%{transform:translate(16px,-14px)}}
+@keyframes crPulse{0%,100%{opacity:.85;transform:scale(1)}50%{opacity:1;transform:scale(1.04)}}
+@keyframes crShine{from{transform:translateX(-130%)}to{transform:translateX(130%)}}
+.section.alt.oneview:has(.credsplit)::before{animation:crDrift 11s ease-in-out infinite}
+.section.alt.oneview:has(.credsplit)::after{animation:crDrift 14s ease-in-out infinite reverse}
+.credsplit>div:first-child.in>*{animation:crUp .7s cubic-bezier(.2,.8,.2,1) backwards}
+.credsplit>div:first-child.in>*:nth-child(1){animation-delay:.05s}
+.credsplit>div:first-child.in>*:nth-child(2){animation-delay:.15s}
+.credsplit>div:first-child.in>*:nth-child(3){animation-delay:.25s}
+.credsplit>div:first-child.in>*:nth-child(4){animation-delay:.35s}
+.credsplit>div:first-child.in>*:nth-child(5){animation-delay:.45s}
+.credsplit>div:first-child.in>h2::after{animation:crBar .9s .5s cubic-bezier(.2,.8,.2,1) backwards}
+.credsplit .eyebrow{position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.credsplit .eyebrow::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(200,162,74,.35) 50%,transparent 65%);transform:translateX(-130%)}
+.credsplit>div:first-child.in .eyebrow::after{animation:crShine 1.4s .9s ease-in-out 1 forwards}
+.credsplit .eyebrow:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(8,56,30,.14)}
+.credsplit>div:first-child>h2{transition:color .3s}
+.credsplit>div:first-child:hover>h2::after{width:110px;transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.credsplit>div:first-child>h2::after{transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.credsplit>div:first-child>p:nth-of-type(2){border-radius:0 12px 12px 0;transition:background .35s,transform .35s,border-color .35s,box-shadow .35s}
+.credsplit>div:first-child>p:nth-of-type(2):hover{background:#fff;transform:translateX(6px);border-color:var(--p);box-shadow:0 10px 24px rgba(8,56,30,.1)}
+.credsplit .btn{position:relative;overflow:hidden}
+.credsplit .btn::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.35) 50%,transparent 65%);transform:translateX(-130%)}
+.credsplit .btn:hover::after{animation:crShine .8s ease-in-out}
+.cred{perspective:900px}
+.cred .credf{transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s,outline-offset .4s}
+.cred:hover .credf{outline-offset:11px}
+.cred::before{animation:crDrift 9s ease-in-out infinite}
+.cred::after{animation:crPulse 6s ease-in-out infinite}
+.credtag{animation:crFloat 4.5s ease-in-out infinite;transition:box-shadow .35s,filter .35s}
+.cred:hover .credtag{box-shadow:0 20px 40px rgba(8,56,30,.45);filter:brightness(1.08)}
+@media(prefers-reduced-motion:reduce){.credtag,.cred::before,.cred::after,.section.alt.oneview:has(.credsplit)::before,.section.alt.oneview:has(.credsplit)::after{animation:none!important}}
+
+/* =====================================================================
+   RESPONSIVE FIXES (collapse overrides that were beating the mobile rules)
+   ===================================================================== */
+@media(max-width:900px){
+ .about .split,body.home .about .split,body.home .onggl .visit,body.home .onggl .visit.split{grid-template-columns:minmax(0,1fr)}
+}
+/* Header on small laptops / large tablets (1021-1180px): no wrapping, tighter spacing */
+@media(min-width:1021px) and (max-width:1180px){
+ .hdr .container{gap:10px}
+ .lt small{display:none}
+ .nav{gap:0}
+ .nav>a,.nav>.dd>a{white-space:nowrap;padding:8px 9px;font-size:13.5px}
+ .nav>a::after,.nav>.dd>a::after{left:9px;right:9px}
+ .hcta{gap:6px}
+ .hcta .btn,.hdr .btn-sm{white-space:nowrap;padding:8px 12px;font-size:12.5px}
+}
